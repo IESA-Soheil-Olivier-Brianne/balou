@@ -17,6 +17,7 @@ class pageType extends AbstractType
         $builder
             ->add('title')
             ->add('content')
+            ->add('url')
             ->add('isPublished')
         ;
     }

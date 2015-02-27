@@ -1,3 +1,8 @@
+balou_menu:
+    resource: "@balouMenuBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 balou_page:
     resource: "@balouPageBundle/Controller/"
     type:     annotation

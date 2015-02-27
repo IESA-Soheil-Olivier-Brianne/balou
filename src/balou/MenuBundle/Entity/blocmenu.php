@@ -14,7 +14,6 @@ class blocmenu
 {   
     /**
        * @ORM\OneToMany(targetEntity="balou\MenuBundle\Entity\menu", mappedBy="blocmenu")
-       * @ORM\JoinColumn(nullable=false)
     */
     private $menu;
 

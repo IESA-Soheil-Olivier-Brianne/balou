@@ -1,0 +1,4 @@
+services:
+#    balou_user.example:
+#        class: balou\UserBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,3 @@
+balou_home_homepage:
+    path:     /
+    defaults: { _controller: balouHomeBundle:Default:index}

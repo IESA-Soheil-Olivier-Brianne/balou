@@ -5,18 +5,23 @@
     <div>{{ error|trans({}, 'FOSUserBundle') }}</div>
 {% endif %}
 
-<form action="{{ path("fos_user_security_check") }}" method="post">
-    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+<div class="logincontent">
 
-    <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
-    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+		<h1>Hello ! Please connect you !</h1><a>Create an account</a>
 
-    <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
-    <input type="password" id="password" name="_password" required="required" />
+		<form action="{{ path("fos_user_security_check") }}" method="post">
+		    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
-    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-    <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+		    <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
+		    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
 
-    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
-</form>
+		    <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+		    <input type="password" id="password" name="_password" required="required" />
+
+		    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+		    <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+
+		    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
+		</form>
+<div>
 {% endblock fos_user_content %}

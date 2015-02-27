@@ -13,10 +13,10 @@ use Doctrine\ORM\Mapping as ORM;
 class blocmenu
 {   
     /**
-       * @ORM\OneToMany(targetEntity="balou\MenuBundle\Entity\menu", mappedBy="menu")
+       * @ORM\OneToMany(targetEntity="balou\MenuBundle\Entity\menu", mappedBy="blocmenu")
        * @ORM\JoinColumn(nullable=false)
     */
-    private $blocMenu;
+    private $menu;
 
     /**
      * @var integer

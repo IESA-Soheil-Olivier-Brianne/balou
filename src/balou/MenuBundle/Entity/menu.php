@@ -23,12 +23,10 @@ class menu
     private $id;
 
     /**
-       * @ORM\OneToMany(targetEntity="balou\MenuBundle\Entity\menu", mappedBy="menu")
+       * @ORM\ManyToOne(targetEntity="balou\MenuBundle\Entity\blocmenu", inversedBy="menu")
        * @ORM\JoinColumn(nullable=false)
     */
-    private $blocMenu;
-    */
-    private $menu;
+    private $blocmenu;
 
     /**
      * @var string

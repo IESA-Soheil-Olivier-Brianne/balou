@@ -28,11 +28,7 @@ class AppKernel extends Kernel
             new balou\UserBundle\balouUserBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new balou\PageBundle\balouPageBundle(),
-<<<<<<< HEAD
-            new balou\MenuBundle\balouMenuBundle(),
-=======
-            new balou\MediaBundle\balouMediaBundle(),
->>>>>>> 9bced9d198acffcd789f63585ad1e45071d55c30
+            new balou\MenuBundle\balouMenuBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

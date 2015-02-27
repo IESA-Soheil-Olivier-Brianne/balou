@@ -7,14 +7,44 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Mon Site</a>
+      <a class="navbar-brand" href="#">Balou</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-       <li><a href="{{ path ('balou_home_homepage')}}"><i class="fa fa-home"></i>  Acceuil</a></li>
-          </ul>
+    <div>
+      <ul class="nav nav-pills nav-stacked">
+       <li><a href="{{ path ('balou_home_homepage')}}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>  Acceuil</a></li>
+       <li><a href="">Webmestre <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+          <ul>
+              <li><a href="">Tableau de bord</a><li><!--
+           --><li><a href="">Menu</a><li><!--
+           --><li><a href="">Pages</a><li><!--
+           --><li><a href="">Media</a><li><!--
+           --><li><a href="">Configuration</a><li><!--
+          --></ul>
+
+       </li>
+
+       <li><a href="">Modules <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+          <ul><!--
+              --><li><a href="">Annuaire</a><li><!--
+              --><li><a href="">Agenda</a><li><!--
+              --><li><a href="">Actualités</a><li><!--
+              --><li><a href="">Mailing</a><li><!--
+         --></ul>
+
+       </li>
+
+       <li><a href="">Admin <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+          <ul><!--
+              --><li><a href="">utilisateurs</a><li><!--
+              --><li><a href="">Clients</a><li><!--
+          --></ul>
+
+       </li>
+
+      </ul>
+
         
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

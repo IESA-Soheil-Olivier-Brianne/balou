@@ -1,0 +1,27 @@
+/*NAV*/
+.container{
+	width: 80%;
+}
+
+.navbar-default{
+	background-color: transparent;
+	border-color: transparent;
+	width: 30%;
+	padding-left: 2em;
+}
+
+.nav-pills>li>ul>li{
+	list-style: none;
+}
+
+/*CONTENT*/
+.pagecontent{
+	display: block;
+	width: 70%;
+	float: right;
+}
+
+/*LOGIN*/
+
+
+

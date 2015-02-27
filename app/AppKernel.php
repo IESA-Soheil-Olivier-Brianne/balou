@@ -5,6 +5,13 @@ use Symfony\Component\Config\Loader\LoaderInterface;
 
 class AppKernel extends Kernel
 {
+
+    public function init()
+    {
+        date_default_timezone_set('Europe/Paris');
+        parent::init();
+    }
+
     public function registerBundles()
     {
         $bundles = array(
@@ -21,7 +28,11 @@ class AppKernel extends Kernel
             new balou\UserBundle\balouUserBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new balou\PageBundle\balouPageBundle(),
+<<<<<<< HEAD
             new balou\MenuBundle\balouMenuBundle(),
+=======
+            new balou\MediaBundle\balouMediaBundle(),
+>>>>>>> 9bced9d198acffcd789f63585ad1e45071d55c30
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

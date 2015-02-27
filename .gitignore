@@ -104,5 +104,12 @@ sftp-config.json
 ### Symfony Patch ###
 /web/bundles/
 /web/uploads/
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+=======
+
+>>>>>>> 52d22f598b63a78a6aa6f65d71420dcb97968ea9
+>>>>>>> 9bced9d198acffcd789f63585ad1e45071d55c30
 

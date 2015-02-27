@@ -128,27 +128,4 @@ class page
     {
         return $this->isPublished;
     }
-
-    /**
-     * Set url
-     *
-     * @param string $url
-     * @return page
-     */
-    public function setUrl($url)
-    {
-        $this->url = $url;
-
-        return $this;
-    }
-
-    /**
-     * Get url
-     *
-     * @return string 
-     */
-    public function getUrl()
-    {
-        return $this->url;
-    }
 }

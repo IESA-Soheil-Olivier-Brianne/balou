@@ -7,7 +7,7 @@
 
 <div class="logincontent">
 
-		<h1>Hello ! Please connect you !</h1><a>Create an account</a>
+		<h1>Hello ! Please connect you !</h1><a href="{{ path ('balou_home_homepage')}}">Create an account</a>
 
 		<form action="{{ path("fos_user_security_check") }}" method="post">
 		    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />

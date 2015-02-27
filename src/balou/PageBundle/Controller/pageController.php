@@ -13,7 +13,7 @@ use balou\PageBundle\Form\pageType;
 /**
  * page controller.
  *
- * @Route("/page")
+ * @Route("/admin/page")
  */
 class pageController extends Controller
 {

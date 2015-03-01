@@ -22,6 +22,14 @@
 }
 
 /*LOGIN*/
-
+.logincontent{
+	display: block;
+	width: 20%;
+}
+.form{
+	display: block;
+	margin: auto;
+	width: 80%;
+}
 
 

@@ -7,21 +7,24 @@
 
 <div class="logincontent">
 
-		<h1>Hello ! Please connect you !</h1><a href="{{ path ('balou_home_homepage')}}">Create an account</a>
+		<h1>Bienvenue !</h1>
+		<h2>Connectez-vous pour continuer ou <a href="{{ path ('fos_user_registration_register')}}">créez votre compte</a></h2>
 
-		<form action="{{ path("fos_user_security_check") }}" method="post">
-		    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+		<div class="form">
+			<form action="{{ path("fos_user_security_check") }}" method="post">
+			    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
-		    <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
-		    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+			    <label for="username">{{ 'security.login.username'|trans({}, 'FOSUserBundle') }}</label>
+			    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
 
-		    <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
-		    <input type="password" id="password" name="_password" required="required" />
+			    <label for="password">{{ 'security.login.password'|trans({}, 'FOSUserBundle') }}</label>
+			    <input type="password" id="password" name="_password" required="required" />
 
-		    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-		    <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
+			    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+			    <label for="remember_me">{{ 'security.login.remember_me'|trans({}, 'FOSUserBundle') }}</label>
 
-		    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
-		</form>
+			    <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans({}, 'FOSUserBundle') }}" />
+			</form>
+		</div>
 <div>
 {% endblock fos_user_content %}

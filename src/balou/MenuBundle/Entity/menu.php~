@@ -23,10 +23,9 @@ class menu
     private $id;
 
     /**
-       * @ORM\ManyToOne(targetEntity="balou\MenuBundle\Entity\menu", inversedBy="blocMenu")
-       * @ORM\JoinColumn(nullable=false)
+       * @ORM\ManyToOne(targetEntity="balou\MenuBundle\Entity\blocmenu", inversedBy="menu")
     */
-    private $menu;
+    private $blocmenu;
 
     /**
      * @var string
@@ -48,13 +47,6 @@ class menu
      * @ORM\Column(name="is_clicked", type="boolean")
      */
     private $isClicked;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="cle_sousmenu", type="integer")
-     */
-    private $cleSousmenu;
 
 
     /**
@@ -159,26 +151,6 @@ class menu
         return $this->menu;
     }
 
-    /**
-     * Set cleSousmenu
-     *
-     * @param integer $cleSousmenu
-     * @return menu
-     */
-    public function setCleSousmenu($cleSousmenu)
-    {
-        $this->cleSousmenu = $cleSousmenu;
+    
 
-        return $this;
-    }
-
-    /**
-     * Get cleSousmenu
-     *
-     * @return integer 
-     */
-    public function getCleSousmenu()
-    {
-        return $this->cleSousmenu;
-    }
 }

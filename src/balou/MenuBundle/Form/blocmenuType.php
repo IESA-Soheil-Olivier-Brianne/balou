@@ -1,12 +1,12 @@
 <?php
 
-namespace balou\PageBundle\Form;
+namespace balou\MenuBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class pageType extends AbstractType
+class blocmenuType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,10 +15,8 @@ class pageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
-            ->add('content')
-            ->add('url')
-            ->add('isPublished','checkbox', array('required' => false))
+            ->add('nom')
+            ->add('description')
         ;
     }
     
@@ -28,7 +26,7 @@ class pageType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'balou\PageBundle\Entity\page'
+            'data_class' => 'balou\MenuBundle\Entity\blocmenu'
         ));
     }
 
@@ -37,6 +35,6 @@ class pageType extends AbstractType
      */
     public function getName()
     {
-        return 'balou_pagebundle_page';
+        return 'balou_menubundle_blocmenu';
     }
 }

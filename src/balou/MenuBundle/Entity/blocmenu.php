@@ -136,4 +136,9 @@ class blocmenu
     {
         return $this->blocMenu;
     }
+
+    public function __toString()
+    {
+        return $this->nom;
+    }
 }

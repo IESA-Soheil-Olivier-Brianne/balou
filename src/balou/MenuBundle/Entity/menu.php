@@ -24,7 +24,6 @@ class menu
 
     /**
        * @ORM\ManyToOne(targetEntity="balou\MenuBundle\Entity\blocmenu", inversedBy="menu")
-       * @ORM\JoinColumn(nullable=false)
     */
     private $blocmenu;
 
@@ -152,4 +151,29 @@ class menu
         return $this->menu;
     }
 
+    
+
+
+    /**
+     * Set blocmenu
+     *
+     * @param \balou\MenuBundle\Entity\blocmenu $blocmenu
+     * @return menu
+     */
+    public function setBlocmenu(\balou\MenuBundle\Entity\blocmenu $blocmenu = null)
+    {
+        $this->blocmenu = $blocmenu;
+
+        return $this;
+    }
+
+    /**
+     * Get blocmenu
+     *
+     * @return \balou\MenuBundle\Entity\blocmenu 
+     */
+    public function getBlocmenu()
+    {
+        return $this->blocmenu;
+    }
 }

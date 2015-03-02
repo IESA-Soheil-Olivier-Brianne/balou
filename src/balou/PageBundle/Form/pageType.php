@@ -16,7 +16,7 @@ class pageType extends AbstractType
     {
         $builder
             ->add('title')
-            ->add('content')
+            ->add('content','textarea', array('attr' => array('class' => 'ckeditor')))
             ->add('url')
             ->add('isPublished','checkbox', array('required' => false))
         ;

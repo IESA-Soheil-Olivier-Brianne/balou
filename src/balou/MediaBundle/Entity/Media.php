@@ -248,6 +248,8 @@ class Media
      */
     public $path;
 
+    public $file;
+
     public function getAbsolutePath()
     {
         return null === $this->path ? null : $this->getUploadRootDir().'/'.$this->path;
@@ -272,32 +274,79 @@ class Media
     }
 
     /**
-     * @Assert\File(maxSize="6000000")
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
      */
-    public $file;
+    public function preUpload()
+    {
+        $this->tempFile = $this->getAbsolutePath();
+        $this->oldFile = $this->getPath();
 
+        if (null !== $this->file){
+            $this->path = sha1(uniqid(mt_rand(),true)).'.'.$this->file->guessExtension();
+        }
+    }
+    /**
+     * @ORM\PostPersist()
+     * @ORM\PostUpdate()
+     */
+    public function upload() 
+    {
+        if (null !== $this->file){
+            $this->file->move($this->getUploadRootDir(),$this->path);
+            unset($this->file);
 
-public function upload()
-{
-    // la propriété « file » peut être vide si le champ n'est pas requis
-    if (null === $this->file) {
-        return;
+            if($this->oldFile != null) 
+            {
+                unlink($this->tempFile);
+            }
+        }
     }
 
-    // utilisez le nom de fichier original ici mais
-    // vous devriez « l'assainir » pour au moins éviter
-    // quelconques problèmes de sécurité
+    /**
+     * @ORM\PreRemove()
+     */
+    public function preRemoveUpload()
+    {
+        $this->tempFile = $this->getAbsolutePath();
+    }
 
-    // la méthode « move » prend comme arguments le répertoire cible et
-    // le nom de fichier cible où le fichier doit être déplacé
-    $this->file->move($this->getUploadRootDir(), $this->file->getClientOriginalName());
+    /**
+     * @ORM\PostRemove()
+     */
+    public function RemoveUpload()
+    {
+        if(file_exists($this->tempFile))
+        {
+            unlink($this->tempFile);
+        }
+    }
 
-    // définit la propriété « path » comme étant le nom de fichier où vous
-    // avez stocké le fichier
-    $this->path = $this->file->getClientOriginalName();
 
-    // « nettoie » la propriété « file » comme vous n'en aurez plus besoin
-    $this->file = null;
-}
+    
+
+
+// public function upload()
+// {
+//     // la propriété « file » peut être vide si le champ n'est pas requis
+//     if (null === $this->file) {
+//         return;
+//     }
+
+//     // utilisez le nom de fichier original ici mais
+//     // vous devriez « l'assainir » pour au moins éviter
+//     // quelconques problèmes de sécurité
+
+//     // la méthode « move » prend comme arguments le répertoire cible et
+//     // le nom de fichier cible où le fichier doit être déplacé
+//     $this->file->move($this->getUploadRootDir(), $this->file->getClientOriginalName());
+
+//     // définit la propriété « path » comme étant le nom de fichier où vous
+//     // avez stocké le fichier
+//     $this->path = $this->file->getClientOriginalName();
+
+//     // « nettoie » la propriété « file » comme vous n'en aurez plus besoin
+//     $this->file = null;
+// }
 
 }

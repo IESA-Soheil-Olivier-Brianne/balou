@@ -1,4 +1,4 @@
-balou_menu:
+balou_media:
     resource: "@balouMediaBundle/Controller/"
     type:     annotation
     prefix:   /

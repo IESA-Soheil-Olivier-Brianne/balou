@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 balou_front:
     resource: "@balouFrontBundle/Controller/"
     type:     annotation
@@ -8,6 +9,8 @@ balou_template:
     type:     annotation
     prefix:   /
 
+=======
+>>>>>>> 3a25bb21a4b8a9abde48e0f485b42f36801a4ca6
 balou_media:
     resource: "@balouMediaBundle/Controller/"
     type:     annotation

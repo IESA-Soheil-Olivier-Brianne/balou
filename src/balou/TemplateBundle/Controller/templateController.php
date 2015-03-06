@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use balou\TemplateBundle\Entity\template;
+use balou\TemplateBundle\Entity\template as templateentity;
 use balou\TemplateBundle\Form\templateType;
 
 /**

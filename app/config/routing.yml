@@ -1,3 +1,8 @@
+balou_front:
+    resource: "@balouFrontBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 balou_template:
     resource: "@balouTemplateBundle/Controller/"
     type:     annotation

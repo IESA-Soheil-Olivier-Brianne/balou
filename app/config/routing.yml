@@ -1,3 +1,8 @@
+agence:
+    resource: "@AgenceBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 
 balou_front:
     resource: "@balouFrontBundle/Controller/"

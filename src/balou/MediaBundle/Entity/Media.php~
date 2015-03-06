@@ -10,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="balou\MediaBundle\Entity\MediaRepository")
- * @ORM\HasLifecycleCallbacks()
+ * @ORM\HasLifecycleCallbacks
  */
 class Media
 {
@@ -31,8 +31,7 @@ class Media
     private $updateAt;
 
     /**
-     * @ORM\PostLoad()
-     * @ORM\PreUpdate()
+     * ORM\PostLoad()
      */
     public function postLoad()
     {
@@ -389,28 +388,5 @@ class Media
     public function getPath()
     {
         return $this->path;
-    }
-
-    /**
-     * Set updateAt
-     *
-     * @param \DateTime $updateAt
-     * @return Media
-     */
-    public function setUpdateAt($updateAt)
-    {
-        $this->updateAt = $updateAt;
-
-        return $this;
-    }
-
-    /**
-     * Get updateAt
-     *
-     * @return \DateTime 
-     */
-    public function getUpdateAt()
-    {
-        return $this->updateAt;
     }
 }

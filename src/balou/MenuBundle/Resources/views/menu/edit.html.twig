@@ -1,8 +1,18 @@
 {% extends '::base.html.twig' %}
 {% block title %}menu edit{% endblock %}
 {% block body -%}
+<div class="row">
+                <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+      						
+      						{{ form(edit_form) }}
+					
+						</div>
+    				</div>
+				</div>
+</div>
 
-    {{ form(edit_form) }}
 
 
     <a href="{{ path('admin_menu') }}">

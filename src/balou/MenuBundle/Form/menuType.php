@@ -15,9 +15,9 @@ class menuType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom')
-            ->add('url')
-            ->add('isClicked', 'checkbox', array('required' => false))
+            ->add('nom', 'text' , array('attr'=> array('class' =>'form-control')))
+            ->add('url', 'text' , array('attr'=> array('class' =>'form-control')))
+            ->add('isClicked', 'checkbox', array('required' => false, 'attr'=> array('class' =>'checkbox-inline')))
             ->add('blocmenu')
         ;
     }

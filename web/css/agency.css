@@ -242,9 +242,15 @@ fieldset[disabled] .btn-xl.active {
 
     .navbar-default .navbar-brand {
         font-size: 2em;
+        position: absolute;
+        top: 0;
+        padding-left: 3em;
         -webkit-transition: all .3s;
         -moz-transition: all .3s;
         transition: all .3s;
+    }
+    .navbar-default .navbar-brand>img {
+        width: 100%;
     }
 
     .navbar-default .navbar-nav>.active>a {
@@ -257,7 +263,7 @@ fieldset[disabled] .btn-xl.active {
     }
 
     .navbar-default.navbar-shrink .navbar-brand {
-        font-size: 1.5em;
+        
     }
 }
 
@@ -496,7 +502,7 @@ section h3.section-subheading {
 }
 
 .timeline>li .timeline-image h4 {
-    margin-top: 12px;
+    margin-top: 2.2em;
     font-size: 10px;
     line-height: 14px;
 }
@@ -564,7 +570,7 @@ section h3.section-subheading {
     }
 
     .timeline>li .timeline-image h4 {
-        margin-top: 28px;
+        margin-top: 2.2em;
         font-size: 12px;
         line-height: 18px;
     }
@@ -592,7 +598,7 @@ section h3.section-subheading {
     }
 
     .timeline>li .timeline-image h4 {
-        margin-top: 30px;
+        margin-top: 2.5em;
         font-size: 18px;
         line-height: 26px;
     }

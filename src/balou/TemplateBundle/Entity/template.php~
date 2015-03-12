@@ -5,12 +5,12 @@ namespace balou\TemplateBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * template
+ * Template
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="balou\TemplateBundle\Entity\templateRepository")
+ * @ORM\Entity(repositoryClass="balou\TemplateBundle\Entity\TemplateRepository")
  */
-class template
+class Template
 {
     /**
      * @var integer
@@ -35,10 +35,10 @@ class template
      */
     private $contenu;
 
-    /**
-     * @ORM\OneToOne(targetEntity="\balou\PageBundle\Entity\page", mappedBy="template")
-     */
-    private $page;
+    // *
+    //  * @ORM\OneToOne(targetEntity="\balou\PageBundle\Entity\page", mappedBy="template")
+     
+    // private $page;
 
     /**
      * Get id
@@ -54,7 +54,7 @@ class template
      * Set nom
      *
      * @param string $nom
-     * @return template
+     * @return Template
      */
     public function setNom($nom)
     {
@@ -77,7 +77,7 @@ class template
      * Set contenu
      *
      * @param string $contenu
-     * @return template
+     * @return Template
      */
     public function setContenu($contenu)
     {
@@ -96,26 +96,31 @@ class template
         return $this->contenu;
     }
 
-    /**
-     * Set page
-     *
-     * @param \balou\PageBundle\Entity\template $page
-     * @return template
-     */
-    public function setPage(\balou\PageBundle\Entity\template $page = null)
-    {
-        $this->page = $page;
+    // /**
+    //  * Set page
+    //  *
+    //  * @param \balou\PageBundle\Entity\Template $page
+    //  * @return Template
+    //  */
+    // public function setPage(\balou\PageBundle\Entity\page $page = null)
+    // {
+    //     $this->page = $page;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
-    /**
-     * Get page
-     *
-     * @return \balou\PageBundle\Entity\template 
-     */
-    public function getPage()
-    {
-        return $this->page;
-    }
+    // /**
+    //  * Get page
+    //  *
+    //  * @return \balou\PageBundle\Entity\Template 
+    //  */
+    // public function getPage()
+    // {
+    //     return $this->page;
+    // }
+
+    // public function __toString()
+    // {
+    //     return $this->nom;
+    // }
 }

@@ -14,8 +14,8 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-    	$menuRepository = $this->get('doctrine.orm.entity_manager')->getRepository('balouMenuBundle:menu');
-    	$name = $menuRepository->findBy(array('blocmenu'=> 1));
+    	$menuRepository = $this->get('doctrine.orm.entity_manager')->getRepository('balouMenuBundle:blocMenu');
+    	$menuBloc = $menuRepository->find(1);
         var_dump($name);
 
         //$blocmenuName=$name->getBlocmenu()->getNom();

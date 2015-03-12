@@ -13,8 +13,8 @@ use Doctrine\ORM\Mapping as ORM;
 class blocmenu
 {   
     /**
-       * @ORM\OneToMany(targetEntity="balou\MenuBundle\Entity\menu", mappedBy="blocmenu")
-    */
+     * @ORM\ManyToMany(targetEntity="balou\MenuBundle\Entity\menu", mappedBy="blocmenu")
+     */
     private $menu;
 
     /**
@@ -101,40 +101,7 @@ class blocmenu
      */
     public function __construct()
     {
-        $this->blocMenu = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add blocMenu
-     *
-     * @param \balou\MenuBundle\Entity\menu $blocMenu
-     * @return blocmenu
-     */
-    public function addBlocMenu(\balou\MenuBundle\Entity\menu $blocMenu)
-    {
-        $this->blocMenu[] = $blocMenu;
-
-        return $this;
-    }
-
-    /**
-     * Remove blocMenu
-     *
-     * @param \balou\MenuBundle\Entity\menu $blocMenu
-     */
-    public function removeBlocMenu(\balou\MenuBundle\Entity\menu $blocMenu)
-    {
-        $this->blocMenu->removeElement($blocMenu);
-    }
-
-    /**
-     * Get blocMenu
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getBlocMenu()
-    {
-        return $this->blocMenu;
+        $this->menu = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     public function __toString()

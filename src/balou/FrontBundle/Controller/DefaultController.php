@@ -19,11 +19,20 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-    	$menuRepository = $this->get('doctrine.orm.entity_manager')->getRepository('balouMenuBundle:menu');
-        $name = $menuRepository->findBy(array('blocmenu'=> 1));
-        var_dump($name);
+    	$menuRepository = $this->get('doctrine.orm.entity_manager')->getRepository('balouMenuBundle:blocmenu');
+        $menuBloc = $menuRepository->find(1);
+        var_dump($menuBloc->getMenu()->toArray());
 
         //$blocmenuName=$name->getBlocmenu()->getNom();
-        return $this->render('balouFrontBundle:Default:index.html.twig', array('header'=>$name));
+        return $this->render('balouFrontBundle:Default:index.html.twig', array('header'=>$menuBloc->getNom()));
+    }
+
+    /**
+     * @Route("/page/{url}")
+     * @Template()
+     */
+    public function pageAction(page $page)
+    {
+var_dump($page); die();
     }
 }

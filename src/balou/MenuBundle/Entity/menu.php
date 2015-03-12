@@ -23,7 +23,7 @@ class menu
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="balou\MenuBundle\Entity\blocmenu",inversedBy="menu")
+     * @ORM\ManyToMany(targetEntity="balou\MenuBundle\Entity\blocmenu",inversedBy="menu")
      */
     private $blocmenu;
 
@@ -154,22 +154,6 @@ class menu
     public function getMenu()
     {
         return $this->menu;
-    }
-
-    
-
-
-    /**
-     * Set blocmenu
-     *
-     * @param \balou\MenuBundle\Entity\blocmenu $blocmenu
-     * @return menu
-     */
-    public function setBlocmenu()
-    {
-        $this->blocmenu = $blocmenu;
-
-        return $this;
     }
 
     /**

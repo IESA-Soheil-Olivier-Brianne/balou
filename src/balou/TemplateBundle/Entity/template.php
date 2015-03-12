@@ -36,11 +36,6 @@ class Template
     private $contenu;
 
     /**
-     * @ORM\OneToOne(targetEntity="\balou\PageBundle\Entity\page", mappedBy="Template")
-     */
-    private $page;
-
-    /**
      * Get id
      *
      * @return integer 
@@ -94,33 +89,5 @@ class Template
     public function getContenu()
     {
         return $this->contenu;
-    }
-
-    /**
-     * Set page
-     *
-     * @param \balou\PageBundle\Entity\Template $page
-     * @return Template
-     */
-    public function setPage(\balou\PageBundle\Entity\Template $page = null)
-    {
-        $this->page = $page;
-
-        return $this;
-    }
-
-    /**
-     * Get page
-     *
-     * @return \balou\PageBundle\Entity\Template 
-     */
-    public function getPage()
-    {
-        return $this->page;
-    }
-
-    public function __toString()
-    {
-        return $this->nom;
     }
 }

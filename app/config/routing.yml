@@ -1,17 +1,13 @@
-<<<<<<< HEAD
 balou_users:
     resource: "@balouUserBundle/Controller/"
     type:     annotation
     prefix:   /
 
-=======
 agence:
     resource: "@AgenceBundle/Controller/"
     type:     annotation
     prefix:   /
 
-
->>>>>>> c894e9c7b935198d0c1049968355364bd384d555
 balou_front:
     resource: "@balouFrontBundle/Controller/"
     type:     annotation

@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>template list</h1>
+    <h1>Template list</h1>
 
     <table class="records_list">
         <thead>
@@ -15,16 +15,16 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('admin_template_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td><a href="{{ path('admin_Template_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.nom }}</td>
                 <td>{{ entity.contenu }}</td>
                 <td>
                 <ul>
                     <li>
-                        <a href="{{ path('admin_template_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('admin_Template_show', { 'id': entity.id }) }}">show</a>
                     </li>
                     <li>
-                        <a href="{{ path('admin_template_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('admin_Template_edit', { 'id': entity.id }) }}">edit</a>
                     </li>
                 </ul>
                 </td>
@@ -35,7 +35,7 @@
 
         <ul>
         <li>
-            <a href="{{ path('admin_template_new') }}">
+            <a href="{{ path('admin_Template_new') }}">
                 Create a new entry
             </a>
         </li>

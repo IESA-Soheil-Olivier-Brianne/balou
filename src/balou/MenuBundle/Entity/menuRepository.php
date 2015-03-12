@@ -12,4 +12,11 @@ use Doctrine\ORM\EntityRepository;
  */
 class menuRepository extends EntityRepository
 {
+	function menuParBloc(){
+		return $this->getEntityManager()->createQueryBuilder()
+			->add('select', 'm')
+			->add('from', 'menu m', 'blocmenu bm')
+			->add('where', 'm.id = bm.id')
+			->getResult();
+	}
 }

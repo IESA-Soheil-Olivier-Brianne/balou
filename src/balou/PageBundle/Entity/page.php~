@@ -49,6 +49,16 @@ class page
      */
     private $isPublished;
 
+    /**
+     * @ORM\OneToOne(targetEntity="\balou\MenuBundle\Entity\menu", inversedBy="page")
+     */
+    private $menu;
+
+    /**
+     * @ORM\OneToOne(targetEntity="\balou\TemplateBundle\Entity\template", inversedBy="page")
+     */
+    private $template;
+
 
     /**
      * Get id
@@ -127,5 +137,51 @@ class page
     public function getIsPublished()
     {
         return $this->isPublished;
+    }
+
+    /**
+     * Set url
+     *
+     * @param string $url
+     * @return page
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * Get url
+     *
+     * @return string 
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * Set menu
+     *
+     * @param \balou\PageBundle\Entity\menu $menu
+     * @return page
+     */
+    public function setMenu(\balou\PageBundle\Entity\menu $menu = null)
+    {
+        $this->menu = $menu;
+
+        return $this;
+    }
+
+    /**
+     * Get menu
+     *
+     * @return \balou\PageBundle\Entity\menu 
+     */
+    public function getMenu()
+    {
+        return $this->menu;
     }
 }

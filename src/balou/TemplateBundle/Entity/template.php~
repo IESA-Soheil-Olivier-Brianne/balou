@@ -5,12 +5,12 @@ namespace balou\TemplateBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Template
+ * template
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="balou\TemplateBundle\Entity\TemplateRepository")
+ * @ORM\Entity(repositoryClass="balou\TemplateBundle\Entity\templateRepository")
  */
-class Template
+class template
 {
     /**
      * @var integer
@@ -36,7 +36,7 @@ class Template
     private $contenu;
 
     /**
-     * @ORM\OneToOne(targetEntity="\balou\PageBundle\Entity\page", mappedBy="Template")
+     * @ORM\OneToOne(targetEntity="\balou\PageBundle\Entity\page", mappedBy="template")
      */
     private $page;
 
@@ -54,7 +54,7 @@ class Template
      * Set nom
      *
      * @param string $nom
-     * @return Template
+     * @return template
      */
     public function setNom($nom)
     {
@@ -77,7 +77,7 @@ class Template
      * Set contenu
      *
      * @param string $contenu
-     * @return Template
+     * @return template
      */
     public function setContenu($contenu)
     {
@@ -99,10 +99,10 @@ class Template
     /**
      * Set page
      *
-     * @param \balou\PageBundle\Entity\Template $page
-     * @return Template
+     * @param \balou\PageBundle\Entity\template $page
+     * @return template
      */
-    public function setPage(\balou\PageBundle\Entity\Template $page = null)
+    public function setPage(\balou\PageBundle\Entity\template $page = null)
     {
         $this->page = $page;
 
@@ -112,15 +112,10 @@ class Template
     /**
      * Get page
      *
-     * @return \balou\PageBundle\Entity\Template 
+     * @return \balou\PageBundle\Entity\template 
      */
     public function getPage()
     {
         return $this->page;
-    }
-
-    public function __toString()
-    {
-        return $this->nom;
     }
 }

@@ -12,4 +12,12 @@ use Doctrine\ORM\EntityRepository;
  */
 class pageRepository extends EntityRepository
 {
+	function findPage(){
+		return $this->getEntityManager()->createQueryBuilder()
+			->add('select', 'p')
+			->add('from', 'page pa')
+			->add('where', 'p.is_published = :published')
+			->setParameter('published', true)
+			->getResult();
+	}
 }

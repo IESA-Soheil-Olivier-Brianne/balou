@@ -23,8 +23,8 @@ class menu
     private $id;
 
     /**
-       * @ORM\ManyToOne(targetEntity="balou\MenuBundle\Entity\blocmenu", inversedBy="menu")
-    */
+     * @ORM\ManyToOne(targetEntity="balou\MenuBundle\Entity\blocmenu",inversedBy="menu")
+     */
     private $blocmenu;
 
     /**
@@ -48,6 +48,11 @@ class menu
      */
     private $isClicked;
 
+    /**
+     * @ORM\OneToOne(targetEntity="\balou\PageBundle\Entity\page", mappedBy="menu")
+     */
+
+    private $page;
 
     /**
      * Get id
@@ -134,7 +139,7 @@ class menu
      * @param \balou\MenuBundle\Entity\menu $menu
      * @return menu
      */
-    public function setMenu(\balou\MenuBundle\Entity\menu $menu)
+    public function setMenu()
     {
         $this->menu = $menu;
 
@@ -160,7 +165,7 @@ class menu
      * @param \balou\MenuBundle\Entity\blocmenu $blocmenu
      * @return menu
      */
-    public function setBlocmenu(\balou\MenuBundle\Entity\blocmenu $blocmenu = null)
+    public function setBlocmenu()
     {
         $this->blocmenu = $blocmenu;
 
@@ -175,5 +180,63 @@ class menu
     public function getBlocmenu()
     {
         return $this->blocmenu;
+    }
+
+    /**
+     * Set page
+     *
+     * @param \balou\MenuBundle\Entity\page $page
+     * @return menu
+     */
+    public function setPage()
+    {
+        $this->page = $page;
+
+        return $this;
+    }
+
+    /**
+     * Get page
+     *
+     * @return \balou\MenuBundle\Entity\page 
+     */
+    public function getPage()
+    {
+        return $this->page;
+    }
+
+    public function __toString()
+    {
+        return $this->nom;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->blocmenu = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add blocmenu
+     *
+     * @param \balou\MenuBundle\Entity\blocmenu $blocmenu
+     * @return menu
+     */
+    public function addBlocmenu(\balou\MenuBundle\Entity\blocmenu $blocmenu)
+    {
+        $this->blocmenu[] = $blocmenu;
+
+        return $this;
+    }
+
+    /**
+     * Remove blocmenu
+     *
+     * @param \balou\MenuBundle\Entity\blocmenu $blocmenu
+     */
+    public function removeBlocmenu(\balou\MenuBundle\Entity\blocmenu $blocmenu)
+    {
+        $this->blocmenu->removeElement($blocmenu);
     }
 }

@@ -49,6 +49,16 @@ class page
      */
     private $isPublished;
 
+    /**
+     * @ORM\OneToOne(targetEntity="\balou\MenuBundle\Entity\menu", inversedBy="page")
+     */
+    private $menu;
+
+    /**
+     * @ORM\OneToOne(targetEntity="\balou\TemplateBundle\Entity\template", inversedBy="page")
+     */
+    private $template;
+
 
     /**
      * Get id
@@ -150,5 +160,56 @@ class page
     public function getUrl()
     {
         return $this->url;
+    }
+
+    /**
+     * Set menu
+     *
+     * @param \balou\PageBundle\Entity\menu $menu
+     * @return page
+     */
+    public function setMenu(\balou\PageBundle\Entity\menu $menu = null)
+    {
+        $this->menu = $menu;
+
+        return $this;
+    }
+
+    /**
+     * Get menu
+     *
+     * @return \balou\PageBundle\Entity\menu 
+     */
+    public function getMenu()
+    {
+        return $this->menu;
+    }
+
+    /**
+     * Set template
+     *
+     * @param \balou\TemplateBundle\Entity\template $template
+     * @return page
+     */
+    public function setTemplate(\balou\TemplateBundle\Entity\template $template = null)
+    {
+        $this->template = $template;
+
+        return $this;
+    }
+
+    /**
+     * Get template
+     *
+     * @return \balou\TemplateBundle\Entity\template 
+     */
+    public function getTemplate()
+    {
+        return $this->template;
+    }
+
+    public function __toString()
+    {
+        return $this->title;
     }
 }

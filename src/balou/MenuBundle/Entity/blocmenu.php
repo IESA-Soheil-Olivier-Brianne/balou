@@ -141,4 +141,37 @@ class blocmenu
     {
         return $this->nom;
     }
+
+    /**
+     * Add menu
+     *
+     * @param \balou\MenuBundle\Entity\menu $menu
+     * @return blocmenu
+     */
+    public function addMenu(\balou\MenuBundle\Entity\menu $menu)
+    {
+        $this->menu[] = $menu;
+
+        return $this;
+    }
+
+    /**
+     * Remove menu
+     *
+     * @param \balou\MenuBundle\Entity\menu $menu
+     */
+    public function removeMenu(\balou\MenuBundle\Entity\menu $menu)
+    {
+        $this->menu->removeElement($menu);
+    }
+
+    /**
+     * Get menu
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMenu()
+    {
+        return $this->menu;
+    }
 }

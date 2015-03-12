@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class templateType extends AbstractType
+class TemplateType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -16,7 +16,8 @@ class templateType extends AbstractType
     {
         $builder
             ->add('nom')
-            ->add('contenu')
+            ->add('contenu','textarea')
+            ->add('page')
         ;
     }
     
@@ -26,7 +27,7 @@ class templateType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'balou\TemplateBundle\Entity\template'
+            'data_class' => 'balou\TemplateBundle\Entity\Template'
         ));
     }
 
@@ -35,6 +36,6 @@ class templateType extends AbstractType
      */
     public function getName()
     {
-        return 'balou_templatebundle_template';
+        return 'balou_Templatebundle_Template';
     }
 }

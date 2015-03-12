@@ -1,1 +1,5 @@
-Hello {{ titre }}!
+<ul>
+  {% for lien in header %}
+    <li>{{ lien.nom }}</li>
+  {% endfor %}
+</ul>

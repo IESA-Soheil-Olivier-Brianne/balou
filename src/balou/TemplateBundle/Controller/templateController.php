@@ -7,19 +7,19 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use balou\TemplateBundle\Entity\template as templateentity;
-use balou\TemplateBundle\Form\templateType;
+use balou\TemplateBundle\Entity\Template as Templateentity;
+use balou\TemplateBundle\Form\TemplateType;
 
 /**
- * template controller.
+ * Template controller.
  *
- * @Route("/admin/template")
+ * @Route("/admin/Template")
  */
-class templateController extends Controller
+class TemplateController extends Controller
 {
 
     /**
-     * Lists all template entities.
+     * Lists all Template entities.
      *
      * @Route("/", name="admin_template")
      * @Method("GET")
@@ -29,22 +29,22 @@ class templateController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('balouTemplateBundle:template')->findAll();
+        $entities = $em->getRepository('balouTemplateBundle:Template')->findAll();
 
         return array(
             'entities' => $entities,
         );
     }
     /**
-     * Creates a new template entity.
+     * Creates a new Template entity.
      *
-     * @Route("/", name="admin_template_create")
+     * @Route("/", name="admin_Template_create")
      * @Method("POST")
-     * @Template("balouTemplateBundle:template:new.html.twig")
+     * @Template("balouTemplateBundle:Template:new.html.twig")
      */
     public function createAction(Request $request)
     {
-        $entity = new template();
+        $entity = new Template();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -53,7 +53,7 @@ class templateController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('admin_template_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('admin_Template_show', array('id' => $entity->getId())));
         }
 
         return array(
@@ -63,16 +63,16 @@ class templateController extends Controller
     }
 
     /**
-     * Creates a form to create a template entity.
+     * Creates a form to create a Template entity.
      *
-     * @param template $entity The entity
+     * @param Template $entity The entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(template $entity)
+    private function createCreateForm(Templateentity $entity)
     {
-        $form = $this->createForm(new templateType(), $entity, array(
-            'action' => $this->generateUrl('admin_template_create'),
+        $form = $this->createForm(new TemplateType(), $entity, array(
+            'action' => $this->generateUrl('admin_Template_create'),
             'method' => 'POST',
         ));
 
@@ -82,27 +82,28 @@ class templateController extends Controller
     }
 
     /**
-     * Displays a form to create a new template entity.
+     * Displays a form to create a new Template entity.
      *
-     * @Route("/new", name="admin_template_new")
+     * @Route("/new", name="admin_Template_new")
      * @Method("GET")
      * @Template()
      */
     public function newAction()
     {
-        $entity = new template();
+        $entity = new Templateentity();
         $form   = $this->createCreateForm($entity);
-
         return array(
-            'entity' => $entity,
+             'entity' => $entity,
             'form'   => $form->createView(),
-        );
+         );
+        //die("coucou");
+
     }
 
     /**
-     * Finds and displays a template entity.
+     * Finds and displays a Template entity.
      *
-     * @Route("/{id}", name="admin_template_show")
+     * @Route("/{id}", name="admin_Template_show")
      * @Method("GET")
      * @Template()
      */
@@ -110,10 +111,10 @@ class templateController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('balouTemplateBundle:template')->find($id);
+        $entity = $em->getRepository('balouTemplateBundle:Template')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find template entity.');
+            throw $this->createNotFoundException('Unable to find Template entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -125,9 +126,9 @@ class templateController extends Controller
     }
 
     /**
-     * Displays a form to edit an existing template entity.
+     * Displays a form to edit an existing Template entity.
      *
-     * @Route("/{id}/edit", name="admin_template_edit")
+     * @Route("/{id}/edit", name="admin_Template_edit")
      * @Method("GET")
      * @Template()
      */
@@ -135,10 +136,10 @@ class templateController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('balouTemplateBundle:template')->find($id);
+        $entity = $em->getRepository('balouTemplateBundle:Template')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find template entity.');
+            throw $this->createNotFoundException('Unable to find Template entity.');
         }
 
         $editForm = $this->createEditForm($entity);
@@ -152,16 +153,16 @@ class templateController extends Controller
     }
 
     /**
-    * Creates a form to edit a template entity.
+    * Creates a form to edit a Template entity.
     *
-    * @param template $entity The entity
+    * @param Template $entity The entity
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(template $entity)
+    private function createEditForm(Template $entity)
     {
-        $form = $this->createForm(new templateType(), $entity, array(
-            'action' => $this->generateUrl('admin_template_update', array('id' => $entity->getId())),
+        $form = $this->createForm(new TemplateType(), $entity, array(
+            'action' => $this->generateUrl('admin_Template_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -170,20 +171,20 @@ class templateController extends Controller
         return $form;
     }
     /**
-     * Edits an existing template entity.
+     * Edits an existing Template entity.
      *
-     * @Route("/{id}", name="admin_template_update")
+     * @Route("/{id}", name="admin_Template_update")
      * @Method("PUT")
-     * @Template("balouTemplateBundle:template:edit.html.twig")
+     * @Template("balouTemplateBundle:Template:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('balouTemplateBundle:template')->find($id);
+        $entity = $em->getRepository('balouTemplateBundle:Template')->find($id);
 
         if (!$entity) {
-            throw $this->createNotFoundException('Unable to find template entity.');
+            throw $this->createNotFoundException('Unable to find Template entity.');
         }
 
         $deleteForm = $this->createDeleteForm($id);
@@ -193,7 +194,7 @@ class templateController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('admin_template_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('admin_Template_edit', array('id' => $id)));
         }
 
         return array(
@@ -203,9 +204,9 @@ class templateController extends Controller
         );
     }
     /**
-     * Deletes a template entity.
+     * Deletes a Template entity.
      *
-     * @Route("/{id}", name="admin_template_delete")
+     * @Route("/{id}", name="admin_Template_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)
@@ -215,21 +216,21 @@ class templateController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('balouTemplateBundle:template')->find($id);
+            $entity = $em->getRepository('balouTemplateBundle:Template')->find($id);
 
             if (!$entity) {
-                throw $this->createNotFoundException('Unable to find template entity.');
+                throw $this->createNotFoundException('Unable to find Template entity.');
             }
 
             $em->remove($entity);
             $em->flush();
         }
 
-        return $this->redirect($this->generateUrl('admin_template'));
+        return $this->redirect($this->generateUrl('admin_Template'));
     }
 
     /**
-     * Creates a form to delete a template entity by id.
+     * Creates a form to delete a Template entity by id.
      *
      * @param mixed $id The entity id
      *
@@ -238,7 +239,7 @@ class templateController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('admin_template_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('admin_Template_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()

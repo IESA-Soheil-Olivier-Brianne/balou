@@ -19,6 +19,8 @@ class pageType extends AbstractType
             ->add('content','textarea', array('attr' => array('class' => 'ckeditor')))
             ->add('url')
             ->add('isPublished','checkbox', array('required' => false))
+            ->add('menu')
+            ->add('template')
         ;
     }
     

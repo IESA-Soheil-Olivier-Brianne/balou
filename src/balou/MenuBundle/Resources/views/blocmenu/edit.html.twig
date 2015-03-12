@@ -10,7 +10,13 @@
         <a href="{{ path('admin_blocmenu') }}">
             Back to the list
         </a>
+
+
     </li>
+
+    <a href="{{ path('admin_menu_new') }}">
+                                <button type="button" class="btn btn-primary">Ajoutez un menu</button>
+                            </a>
     <li>{{ form(delete_form) }}</li>
 </ul>
 {% endblock %}

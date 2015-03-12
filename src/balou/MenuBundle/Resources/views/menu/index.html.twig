@@ -1,44 +1,53 @@
 {% extends '::base.html.twig' %}
-{% block titre %}menu list{% endblock %}
+{% block title %}menu list{% endblock %}
 {% block body -%}
 
-    <table class="records_list">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Url</th>
-                <th>Isclicked</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('admin_menu_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.nom }}</td>
-                <td>{{ entity.url }}</td>
-                <td>{{ entity.isClicked }}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('admin_menu_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('admin_menu_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
 
-        <ul>
-        <li>
-            <a href="{{ path('admin_menu_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
+     <div class="row">
+                <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+
+                            <h4>Les menus de votre bloc</h4>
+
+                            <a href="{{ path('admin_menu_new') }}">
+                                <button type="button" class="btn btn-primary">Ajoutez un menu</button>
+                            </a>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Nom</th>
+                                            <th>Url</th>
+                                            <th>État</th>
+                                            <th>Éditer</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for entity in entities %}
+                                        <tr>
+                                            <td><a href="{{ path('admin_menu_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                                            <td>{{ entity.nom }}</td>
+                                            <td>{{ entity.url }}</td>
+                                            <td>{{ entity.isClicked }}</td>
+                                            <td>
+                                                <a href="{{ path('admin_menu_show', { 'id': entity.id }) }}"><i class="fa fa-eye"></i></a>
+                                                <a href="{{ path('admin_menu_edit', { 'id': entity.id }) }}"><i class="fa fa-pencil"></i></a>
+                                                <a href="{{ path('admin_menu_show', { 'id': entity.id }) }}"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
     {% endblock %}

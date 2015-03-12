@@ -1,15 +1,13 @@
 {% extends '::base.html.twig' %}
-{% block titre %}menu edit{% endblock %}
+{% block title %}menu edit{% endblock %}
 {% block body -%}
 
     {{ form(edit_form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('admin_menu') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
+
+    <a href="{{ path('admin_menu') }}">
+        <button type="button" class="btn btn-primary">Revenir aux menus de votre bloc</button>
+    </a>
+    {{ form(delete_form) }}
 </ul>
 {% endblock %}

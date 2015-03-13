@@ -25,4 +25,5 @@ class DefaultController extends Controller
 
         return $this->render('balouUserBundle:Users:users.html.twig', array('users' =>   $users));
     }
+
 }

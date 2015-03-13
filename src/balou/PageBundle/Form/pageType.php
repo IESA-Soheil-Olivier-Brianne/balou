@@ -20,7 +20,6 @@ class pageType extends AbstractType
             ->add('url')
             ->add('isPublished','checkbox', array('required' => false))
             ->add('menu')
-            ->add('template')
         ;
     }
     

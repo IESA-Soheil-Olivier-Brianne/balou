@@ -1,5 +1,11 @@
 <ul>
-  {% for lien in header %}
+	{{ header.nom }}
+  {% for lien in header.menu %}
     <li>{{ lien.nom }}</li>
   {% endfor %}
-</ul>{}
+</ul>
+<div>
+	{{ page.title }}
+	{{ page.content}}
+</div>
+

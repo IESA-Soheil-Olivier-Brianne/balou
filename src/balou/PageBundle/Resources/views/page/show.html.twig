@@ -3,42 +3,53 @@
 
 {% block body -%}
 
-    <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ entity.title }}</td>
-            </tr>
-            <tr>
-                <th>Content</th>
-                <td>{{ entity.content }}</td>
-            </tr>
-            <tr>
-                <th>Url</th>
-                <td>{{ entity.url }}</td>
-            </tr>
-            <tr>
-                <th>Ispublished</th>
-                <td>{{ entity.isPublished }}</td>
-            </tr>
-        </tbody>
-    </table>
+ <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('page') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('page_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+                            <h4>Les informations de votre page</h4>
+
+                            <a href="{{ path('page') }}">
+                                <button type="button" class="btn btn-primary">Retour aux pages</button>
+                            </a>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>Nom</th>
+                                            <th>Contenu</th>
+                                            <th>Url</th>
+                                            <th>État</th>
+                                            <th>Éditer</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                               
+                                        <tr>
+                                            <td><a href="{{ path('page_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                                            <td>{{ entity.title }}</td>
+                                            <td>{{ entity.content }}</td>
+                                            <td>{{ entity.url }}</td>
+                                            <td>{{ entity.isPublished }}</td>
+                                            <td>
+                                                <a href="{{ path('page_edit', { 'id': entity.id }) }}"><i class="fa fa-pencil"></i></a>
+                                                <a href="{{ path('page_show', { 'id': entity.id }) }}"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+                                      
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                            {{ form(delete_form) }}
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
 {% endblock %}

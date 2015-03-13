@@ -5,7 +5,7 @@ use Symfony\Component\Security\Core\SecurityContext;
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\HttpKernel\Event\FilterControllerEvent;
 use Symfony\Component\HttpKernel\HttpKernel;
-use Acme\UserBundle\Entity\User;
+use balou\UserBundle\Entity\User;
  
 class ActivityListener
 {

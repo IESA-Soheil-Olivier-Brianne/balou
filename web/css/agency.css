@@ -127,6 +127,11 @@ fieldset[disabled] .btn-primary.active {
     font-weight: 700;
     color: #fff;
     background-color: #005996;
+    margin-bottom: 0.6em;
+}
+
+.btn-register{
+    color: white;
 }
 
 .btn-xl:hover,
@@ -263,7 +268,7 @@ fieldset[disabled] .btn-xl.active {
     }
 
     .navbar-default.navbar-shrink .navbar-brand {
-        
+        font-size: 1.5em;
     }
 }
 

@@ -1,0 +1,27 @@
+input[type=submit].btn-block{
+	background-color: #005996;
+	border-color: #005996;
+}
+
+input[type=submit].btn-block:focus{
+	background-color: #0069A3;
+	border-color: #0069A3;
+}
+
+.btn-success{
+	background-color: #005996;
+	border-color: #005996;
+}
+
+.btn-success:hover,
+.btn-success:focus,
+.btn-success:active,
+.btn-success.active,
+.open .dropdown-toggle.btn-xl {
+	background-color: #0069A3;
+	border-color: #0069A3;
+}
+
+.form-control{
+	background-color: rgb(204, 204, 204);
+}

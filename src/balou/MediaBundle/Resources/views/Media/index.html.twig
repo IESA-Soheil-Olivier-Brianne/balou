@@ -3,53 +3,42 @@
 
 {% block body -%}
 
-    <table class="records_list">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Titremedia</th>
-                <th>Taillemedia</th>
-                <th>Descriptionmedia</th>
-                <th>Fichiermedia</th>
-                <th>Urlmedia</th>
-                <th>Altmedia</th>
-                <th>Lienmedia</th>
-                <th>Path</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('admin_media_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.titreMedia }}</td>
-                <td>{{ entity.tailleMedia }}</td>
-                <td>{{ entity.descriptionMedia }}</td>
-                <td>{{ entity.fichierMedia }}</td>
-                <td>{{ entity.urlMedia }}</td>
-                <td>{{ entity.altMedia }}</td>
-                <td>{{ entity.lienMedia }}</td>
-                <td>{{ entity.path }}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('admin_media_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('admin_media_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+<div class="wrapper">
+  <div class="wrapper_inner">
+    <!-- Gallery -->
+    <section class="gallery">
+      <!-- items -->
+      <div class="gallery_item">
+        <!-- vignettes -->
+     {% for entity in entities %}  
+        <div class="gallery_item_preview">
+          <a href="#" data-js="{{loop.index}}">
+          
+            <img src="{{ asset('timthumb.php?w=300&h=300&src=uploads/documents/' ~ entity.path) }}" alt="{{ entity.descriptionMedia }}" /><div>
+            <h4>{{ entity.titreMedia }}</h4>
+            <p>{{ entity.descriptionMedia }}</p> 
+            <p>{{ entity.path }}</p>   
+        </a>
+       
+       <a href="{{ path('admin_media_show', { 'id': entity.id }) }}">voir</a>
+            <a href="{{ path('admin_media_edit', { 'id': entity.id }) }}">Modifiez</a>
+        <!-- Zoom de l'image -->
+        
+        <div data-lk="{{loop.index}}" class="gallery_item_full">
+          <div class="box">
+            <img src="{{ asset('uploads/documents/' ~ entity.path) }}" alt="{{ entity.descriptionMedia }}" />
+            <h4>{{ entity.titreMedia }}</h4>
+            <p>{{ entity.descriptionMedia }}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </section>
+  </div>
+</div>
 
-        <ul>
-        <li>
-            <a href="{{ path('admin_media_new') }}">
+
+<a href="{{ path('admin_media_new') }}">
                 Create a new entry
             </a>
-        </li>
-    </ul>
-    {% endblock %}
+{% endblock %}

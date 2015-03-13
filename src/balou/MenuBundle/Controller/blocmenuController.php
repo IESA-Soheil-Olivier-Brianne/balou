@@ -30,10 +30,12 @@ class blocmenuController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('balouMenuBundle:blocmenu')->findAll();
+        $menuRepository = $this->get('doctrine.orm.entity_manager')->getRepository('balouMenuBundle:blocmenu');
+        $menuBlocs = $menuRepository->findAll();
+        //var_dump($menuBlocs[0]->getMenu()->toArray());
+        //var_dump($page); die();
+        return $this->render('balouMenuBundle:blocmenu:index.html.twig', array('entities' => $entities,'header'=>$menuBlocs));
 
-        return array(
-            'entities' => $entities,
-        );
     }
     /**
      * Creates a new blocmenu entity.

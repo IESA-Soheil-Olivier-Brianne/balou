@@ -5,11 +5,7 @@
 
     {{ form(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('admin_blocmenu') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+       <a href="{{ path('admin_blocmenu') }}">
+        <button type="button" class="btn btn-primary">Revenir aux blocs de menu</button>
+    </a>
 {% endblock %}

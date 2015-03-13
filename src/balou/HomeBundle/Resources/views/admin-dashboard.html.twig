@@ -3,5 +3,13 @@
 
 
 {% block body %} 
-
+<p id="who-is-online">
+    <strong>Utilisateurs en ligne ({{ usersOnline|length }}) :</strong>
+</p>
+<ul>
+	{% for user in usersOnline %}
+    	<li>{{ usersOnline|join(', ') }} {{ user.lastActivity|date }}</li>
+    {% endfor %}
+</ul>
+                                                            
 {% endblock %}

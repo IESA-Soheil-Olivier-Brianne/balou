@@ -1,4 +1,9 @@
 services:
+    activity_listener:
+        class: balou\UserBundle\Listener\ActivityListener
+        arguments: [@security.context, @doctrine.orm.entity_manager]
+        tags:
+            - { name: kernel.event_listener, event: kernel.controller, method: onCoreController }
 #    balou_user.example:
 #        class: balou\UserBundle\Example
 #        arguments: [@service_id, "plain_value", %parameter%]

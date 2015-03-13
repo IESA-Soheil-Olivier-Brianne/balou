@@ -5,18 +5,11 @@
 
     {{ form(edit_form) }}
 
-        <ul class="record_actions">
-    <li>
         <a href="{{ path('admin_blocmenu') }}">
-            Back to the list
+            <button type="button" class="btn btn-primary">Revenir aux blocs de menu</button>
         </a>
 
 
-    </li>
+    {{ form(delete_form) }}
 
-    <a href="{{ path('admin_menu_new') }}">
-                                <button type="button" class="btn btn-primary">Ajoutez un menu</button>
-                            </a>
-    <li>{{ form(delete_form) }}</li>
-</ul>
 {% endblock %}

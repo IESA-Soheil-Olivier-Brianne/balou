@@ -15,10 +15,10 @@ class pageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title')
+            ->add('title', 'text' , array('attr'=> array('class' =>'form-control')))
             ->add('content','textarea', array('attr' => array('class' => 'ckeditor')))
-            ->add('url')
-            ->add('isPublished','checkbox', array('required' => false))
+            ->add('url', 'text' , array('attr'=> array('class' =>'form-control')))
+            ->add('isPublished','checkbox', array('required' => false, 'attr'=> array('class' =>'checkbox-inline')))
             ->add('menu')
         ;
     }

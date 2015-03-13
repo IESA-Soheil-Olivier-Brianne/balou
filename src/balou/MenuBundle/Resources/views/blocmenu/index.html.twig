@@ -25,22 +25,46 @@
                                             <a href="{{ path('admin_blocmenu_edit', { 'id': entity.id }) }}"><i class="fa fa-pencil"></i> Modifiez votre bloc</a>
                                         
                                             <a href="{{ path('admin_blocmenu_edit', { 'id': entity.id }) }}"><i class="fa fa-trash-o"></i> Supprimez</a>
+
+
+
+                                {% for block in entity.menu %}
                                     <h4>{{ entity.nom }}</h4>
+                                    <a href="{{ path('admin_menu_new') }}">
+                                        <button type="button" class="btn btn-primary">Ajoutez un menu</button>
+                                    </a>
+                                    <hr>
+                                    <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Nom</th>
+                                            <th>Éditer</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    
+                                        <tr>    
+                                            <td>
+                                                <a href="{{ path('admin_menu_show', { 'id': entity.id }) }}">{{ block.nom }}</a>
+                                            </td>
+                                            <td>
+                                                <a href="{{ path('admin_menu_show', { 'id': entity.id }) }}"><i class="fa fa-eye"></i></a>
+                                                <a href="{{ path('admin_menu_edit', { 'id': entity.id }) }}"><i class="fa fa-pencil"></i></a>
+                                                <a href="{{ path('admin_menu_show', { 'id': entity.id }) }}"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+                                 
+                                    </tbody>
+                                </table>
+                                    {% endfor %}
+
+
+
                                 </div>
                              {% endfor %}  
                             </div>
-                            <ul>
-                              {% for block in header %}
-                                <li>{{ block.nom }}
-                                    <ul>
-                                        {% for menu in block.menu %}
-                                            <li>{{ menu.nom }}</li>
-                                        {% endfor %}
-                                    </ul>
-                                </li>
-                              {% endfor %}
-                            </ul>
-                        </div>
+                          
+                        
             </div>
 
     {% endblock %}

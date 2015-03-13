@@ -2,10 +2,6 @@
 {% block title %}blocmenu list{% endblock %}
 
 {% block body -%}
-
-
-
-        
             
             <div class="panel panel-default">   
                <div class="panel-body">
@@ -14,6 +10,9 @@
                            {% for entity in entities %}     
                                 <li {%if loop.index==1 %}class="active"{%endif%}><a href="#{{ entity.nom }}" data-toggle="tab">{{ entity.nom }}</a>
                                 </li>
+                                 {%if loop.last %}<li><a href="{{ path('admin_blocmenu_new') }}">
+                                    +
+                                </a></li>{%endif%}
                             {% endfor %}    
                             </ul>
                             
@@ -33,17 +32,7 @@
                             
                         </div>
             </div>
-        
-    
-        <ul>
-        <li>
-            <a href="{{ path('admin_blocmenu_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
 
-    
     {% endblock %}
 
 

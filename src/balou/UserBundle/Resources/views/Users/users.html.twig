@@ -1,10 +1,53 @@
-<table>
+{% extends "::base.html.twig" %}
+{% block title %}list users{% endblock %}
+{% block body -%}
 
- {% for user in users %}
- <tr>
- <td> {{ user.username }} </td>
- {# ... #} 
- </tr>
- {% endfor %}
+ <div class="row">
+                <div class="col-lg-6">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
 
- </table>
+                            <h4>Liste des utilisateurs</h4>
+
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Nom</th>
+                                            <th>Dernières connexion</th>
+                                            <th>État</th>
+                                            <th>Rôle</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                       {% for user in users %}
+                                        <tr>
+                                            <td>
+                                               {{ user.username }}
+                                            </td>
+                                            <td>
+                                               Il y a 10heures
+                                            </td>
+                                            <td>
+                                               En ligne
+                                            </td>
+                                            <td>
+                                               Super Administrateur
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+</div>
+
+{% endblock %}

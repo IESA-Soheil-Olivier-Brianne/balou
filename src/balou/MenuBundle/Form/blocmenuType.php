@@ -15,8 +15,8 @@ class blocmenuType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom')
-            ->add('description')
+            ->add('nom', 'text' , array('attr'=> array('class' =>'form-control')))
+            ->add('description', 'text' , array('attr'=> array('class' =>'form-control')))
         ;
     }
     

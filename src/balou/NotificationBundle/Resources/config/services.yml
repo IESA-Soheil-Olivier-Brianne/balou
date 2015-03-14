@@ -1,0 +1,8 @@
+parameters:
+    balou.notification.class: balou\NotificationBundle\Controller\NotificationController
+
+services:
+    balou.notify:
+        class: "%balou.notification.class%"
+        arguments:
+            session: @session

@@ -3,25 +3,101 @@
 
 
 {% block body %} 
-<p>
-    <strong>Utilisateurs en ligne ({{ usersOnline|length }}) </strong>
-</p>
-<ul>
-	{% for user in usersOnline %}
-    	<li>{{ usersOnline|join(', ') }} {{ user.lastActivity|date }}</li>
-    {% endfor %}
-</ul>
 
-<p>
-    <strong>Nombre de pages : ({{ pages|length }}) </strong>
-</p>
+<div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-users fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">{{ usersOnline|length }}</div>
+                                    <div>Utilisateurs en ligne</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">Dernières connexion :</span>
+                                {% for user in usersOnline %}
+                                <span class="pull-left">- {{ usersOnline|join(', ') }} {{ user.lastActivity|date }}</span>
+                                {% endfor %}
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-file-text fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">{{ pages|length }}</div>
+                                    <div>Nombre de pages</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">Accédez aux pages</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-yellow">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-thumb-tack fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">{{ notescount|length }}</div>
+                                    <div>Dernier pense-bête</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                            	
+                                <span class="pull-left">{{ notes.note }}</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-red">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-support fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div class="huge">Contact</div>
+                                    <div>Tickets Support!</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="#">
+                            <div class="panel-footer">
+                                <span class="pull-left">Les tickets sont traîtés sous 48h</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
 
-<p>
-    <strong>Nombre de notifications : ({{ notescount|length }}) </strong>
-</p>
-
-<p>{% include 'ADesignsCalendarBundle::calendar.html.twig' %}</p>
-
-<p>{{ notes.note }}</p>
-                                                            
+            
+{% include 'ADesignsCalendarBundle::calendar.html.twig' %}
 {% endblock %}

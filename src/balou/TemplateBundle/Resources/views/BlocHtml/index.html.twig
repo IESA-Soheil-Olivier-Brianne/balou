@@ -1,41 +1,57 @@
 {% extends '::base.html.twig' %}
+{% block title %}Liste des Blocs HMTL{% endblock %}
 
 {% block body -%}
-    <h1>BlocHtml list</h1>
 
-    <table class="records_list">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
+<div class="panel panel-default">   
+    <div class="panel-body">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs">
+        {% for entity in entities %}  
+             <li {%if loop.index==1 %}class="active"{%endif%}><a href="#{{ entity.nom }}" data-toggle="tab">{{ entity.nom }}</a>
+             </li>
+            {%if loop.last %}<li><a href="{{ path('admin_blocmenu_new') }}">+</a></li>{%endif%}
+            {% endfor %}    
+        </ul>
+                            
+        <!-- Tab panes -->
+        <div class="tab-content">
         {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('admin_blochtml_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.nom }}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('admin_blochtml_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('admin_blochtml_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            <div class="tab-pane fade in {%if loop.index==1 %}active{%endif%}" id="{{ entity.nom }}">
+                <h5>Actions</h5>
+                                       
+                    <a href="{{ path('admin_blochtml_edit', { 'id': entity.id }) }}"><i class="fa fa-pencil"></i></a>
+                    <a href="{{ path('admin_blochtml_edit', { 'id': entity.id }) }}"><i class="fa fa-trash-o"></i></a>
+                
+                    <a class="create-new" href="{{ path('admin_html_new') }}"><button type="button" class="btn btn-primary">Ajoutez un menu</button></a>
+                        <hr>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Nom</th>
+                                        <th>Éditer</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for block in entity.html %}
+                                    <tr>
+                                        <td>    
+                                            <a href="{{ path('admin_html_show', { 'id': entity.id }) }}">{{ block.contenu }}</a>
+                                        </td>
+                                        <td>
+                                            <a href="{{ path('admin_html_show', { 'id': entity.id }) }}"><i class="fa fa-eye"></i></a>
+                                            <a href="{{ path('admin_html_edit', { 'id': entity.id }) }}"><i class="fa fa-pencil"></i></a>
+                                            <a href="{{ path('admin_html_show', { 'id': entity.id }) }}"><i class="fa fa-trash-o"></i></a>
 
-        <ul>
-        <li>
-            <a href="{{ path('admin_blochtml_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                
+            </div>
+            {% endfor %}  
+        </div>
+                                        
+    </div>
     {% endblock %}

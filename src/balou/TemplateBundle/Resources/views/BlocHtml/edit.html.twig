@@ -1,16 +1,14 @@
 {% extends '::base.html.twig' %}
+{% block title %}Modifier le Bloc HMTL{% endblock %}
 
 {% block body -%}
-    <h1>BlocHtml edit</h1>
 
     {{ form(edit_form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('admin_blochtml') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+	{{ form(delete_form) }}
+	
+    <a href="{{ path('admin_blochtml') }}"><button type="button" class="btn btn-primary">Retour à la liste</button></a>
+
+    
+
 {% endblock %}

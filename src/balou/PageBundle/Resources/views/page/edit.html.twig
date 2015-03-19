@@ -1,15 +1,15 @@
 {% extends '::base.html.twig' %}
-{% block title %}page edit{% endblock %}
+{% block title %}Modifier la page{% endblock %}
 
 {% block body -%}
     
 
     {{ form(edit_form) }}
+	
+	{{ form(delete_form) }}
 
-        <a href="{{ path('page') }}">
-            <button type="button" class="btn btn-primary">Revenir aux pages</button>
-        </a>
+    <a href="{{ path('page') }}"><button type="button" class="btn btn-primary">Revenir aux pages</button></a>
 
-{{ form(delete_form) }}
+
 
 {% endblock %}

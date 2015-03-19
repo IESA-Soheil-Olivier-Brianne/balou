@@ -1,5 +1,5 @@
 {% extends '::base.html.twig' %}
-{% block title %}page list{% endblock %}
+{% block title %}Liste de vos pages{% endblock %}
 
 {% block body -%}
 
@@ -10,9 +10,7 @@
 
                             <h4>Les pages</h4>
 
-                            <a href="{{ path('page_new') }}">
-                                <button type="button" class="btn btn-primary">Ajoutez une page</button>
-                            </a>
+                            <a class="create-new" href="{{ path('page_new') }}"><button type="button" class="btn btn-primary">Ajoutez une page</button></a>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
@@ -24,7 +22,7 @@
                                             <th>Nom</th>
                                             
                                             <th>État</th>
-                                            <th>Éditer</th>
+                                            <th>Actions</th>
                                         </tr>
                                     </thead>
                                     <tbody>

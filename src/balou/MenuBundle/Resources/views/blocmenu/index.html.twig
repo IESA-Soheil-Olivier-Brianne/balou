@@ -1,40 +1,31 @@
 {% extends '::base.html.twig' %}
-{% block title %}blocmenu list{% endblock %}
+{% block title %}Liste de vos blocs menu{% endblock %}
 
 {% block body -%}
             
-            <div class="panel panel-default">   
-               <div class="panel-body">
-                        <!-- Nav tabs -->
-                            <ul class="nav nav-tabs">
-                           {% for entity in entities %}     
-                                <li {%if loop.index==1 %}class="active"{%endif%}><a href="#{{ entity.nom }}" data-toggle="tab">{{ entity.nom }}</a>
-                                </li>
-                                 {%if loop.last %}<li><a href="{{ path('admin_blocmenu_new') }}">
-                                    +
-                                </a></li>{%endif%}
-                            {% endfor %}    
-                            </ul>
+    <div class="panel panel-default">   
+        <div class="panel-body">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs">
+            {% for entity in entities %}  
+                <li {%if loop.index==1 %}class="active"{%endif%}><a href="#{{ entity.nom }}" data-toggle="tab">{{ entity.nom }}</a>
+                </li>
+                {%if loop.last %}<li><a href="{{ path('admin_blocmenu_new') }}">+</a></li>{%endif%}
+                {% endfor %}    
+            </ul>
                             
-                            <!-- Tab panes -->
-                            <div class="tab-content">
-                            {% for entity in entities %}
-                                <div class="tab-pane fade in {%if loop.index==1 %}active{%endif%}" id="{{ entity.nom }}">
-                                    <h5>Description : {{ entity.description }}</h5>
+            <!-- Tab panes -->
+            <div class="tab-content">
+            {% for entity in entities %}
+                <div class="tab-pane fade in {%if loop.index==1 %}active{%endif%}" id="{{ entity.nom }}">
+                    <h5>Description : {{ entity.description }}</h5>
                                        
-                                            <a href="{{ path('admin_blocmenu_edit', { 'id': entity.id }) }}"><i class="fa fa-pencil"></i> Modifiez votre bloc</a>
-                                        
-                                            <a href="{{ path('admin_blocmenu_edit', { 'id': entity.id }) }}"><i class="fa fa-trash-o"></i> Supprimez</a>
-
-
-
-                                
-                                    <h4>{{ entity.nom }}</h4>
-                                    <a href="{{ path('admin_menu_new') }}">
-                                        <button type="button" class="btn btn-primary">Ajoutez un menu</button>
-                                    </a>
-                                    <hr>
-                                    <table class="table table-striped">
+                        <a href="{{ path('admin_blocmenu_edit', { 'id': entity.id }) }}"><i class="fa fa-pencil"></i></a>
+                        <a href="{{ path('admin_blocmenu_edit', { 'id': entity.id }) }}"><i class="fa fa-trash-o"></i></a>
+                
+                        <a class="create-new" href="{{ path('admin_menu_new') }}"><button type="button" class="btn btn-primary">Ajoutez un menu</button></a>
+                            <hr>
+                                <table class="table table-striped">
                                     <thead>
                                         <tr>
                                             <th>Nom</th>
@@ -57,17 +48,12 @@
                                             {% endfor %}
                                     </tbody>
                                 </table>
-                                    
-
-
-
-                                </div>
-                             {% endfor %}  
-                            </div>
-                          
-                        
+                
             </div>
-
+            {% endfor %}  
+        </div>
+                                        
+    </div>
     {% endblock %}
 
 

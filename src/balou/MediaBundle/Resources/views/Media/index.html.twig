@@ -28,9 +28,9 @@
           <h4>{{ entity.titreMedia }}</h4>
           <p class="text-muted">{{ entity.descriptionMedia }}</p>
 
-          <a href="{{ path('page_show', { 'id': entity.id }) }}"><i class="fa fa-eye"></i></a>
-          <a href="{{ path('page_edit', { 'id': entity.id }) }}"><i class="fa fa-pencil"></i></a>
-          <a href="{{ path('page_show', { 'id': entity.id }) }}"><i class="fa fa-trash-o"></i></a>
+          <a href="{{ path('admin_media_show', { 'id': entity.id }) }}"><i class="fa fa-eye"></i></a>
+          <a href="{{ path('admin_media_edit', { 'id': entity.id }) }}"><i class="fa fa-pencil"></i></a>
+          <a href="{{ path('admin_media_show', { 'id': entity.id }) }}"><i class="fa fa-trash-o"></i></a>
 
         </div>
         

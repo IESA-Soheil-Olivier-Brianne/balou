@@ -22,10 +22,8 @@
                                        
                         <a href="{{ path('admin_blocmenu_edit', { 'id': entity.id }) }}"><i class="fa fa-pencil"></i></a>
                         <a href="{{ path('admin_blocmenu_edit', { 'id': entity.id }) }}"><i class="fa fa-trash-o"></i></a>
-                        <br/>
-
-
-                        <a href="{{ path('admin_menu_new') }}"><button type="button" class="btn btn-primary">Ajoutez un menu</button></a>
+                
+                        <a class="create-new" href="{{ path('admin_menu_new') }}"><button type="button" class="btn btn-primary">Ajoutez un menu</button></a>
                             <hr>
                                 <table class="table table-striped">
                                     <thead>

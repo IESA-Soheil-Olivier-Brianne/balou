@@ -25,7 +25,7 @@ class DefaultController extends Controller
         $menuBlocFooter = $menuRepository->findOneBy(array('nom' => 'Footer'));
         //var_dump( $menuBlocFooter);
         $cssRepository = $this->get('doctrine.orm.entity_manager')->getRepository('balouTemplateBundle:Template');
-        $cssBloc = $cssRepository->find(1);
+        $cssBloc = $cssRepository->findOneBy(array('nom' => 'CSS'));
 
         $htmlRepository = $this->get('doctrine.orm.entity_manager')->getRepository('balouTemplateBundle:BlocHtml');
         $htmlBlocRight = $htmlRepository->findOneBy(array('nom' => 'Right'));

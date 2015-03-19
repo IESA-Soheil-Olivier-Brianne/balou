@@ -11,5 +11,7 @@
     	<li>{{ usersOnline|join(', ') }} {{ user.lastActivity|date }}</li>
     {% endfor %}
 </ul>
+
+{% include 'ADesignsCalendarBundle::calendar.html.twig' %}
                                                             
 {% endblock %}

@@ -1,12 +1,12 @@
 <?php
 
-namespace balou\MediaBundle\Form;
+namespace balou\TemplateBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class MediaType extends AbstractType
+class HtmlType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,14 +15,8 @@ class MediaType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('titreMedia', 'text' , array('attr'=> array('class' =>'form-control')))
-            ->add('tailleMedia')
-            ->add('descriptionMedia', 'text' , array('attr'=> array('class' =>'form-control')))
-            ->add('fichierMedia')
-            ->add('urlMedia', 'text' , array('attr'=> array('class' =>'form-control')))
-            ->add('altMedia')
-            ->add('lienMedia')
-            ->add('file','file',array('required' => false ))
+            ->add('contenu')
+            ->add('blochtml')
         ;
     }
     
@@ -32,7 +26,7 @@ class MediaType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'balou\MediaBundle\Entity\Media'
+            'data_class' => 'balou\TemplateBundle\Entity\Html'
         ));
     }
 
@@ -41,6 +35,6 @@ class MediaType extends AbstractType
      */
     public function getName()
     {
-        return 'balou_mediabundle_media';
+        return 'balou_templatebundle_html';
     }
 }

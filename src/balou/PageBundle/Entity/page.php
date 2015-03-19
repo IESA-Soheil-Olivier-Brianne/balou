@@ -162,7 +162,7 @@ class page
      * @param \balou\PageBundle\Entity\menu $menu
      * @return page
      */
-    public function setMenu(\balou\PageBundle\Entity\menu $menu = null)
+    public function setMenu(\balou\MenuBundle\Entity\menu $menu = null)
     {
         $this->menu = $menu;
 

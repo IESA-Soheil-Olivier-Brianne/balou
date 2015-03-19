@@ -10,6 +10,7 @@
         <link rel="stylesheet" type="text/css" href="{{ asset('css/add.css') }}"/>
         <link rel="stylesheet" type="text/css" href="{{ asset('css/sb-admin-2.css') }}"/>
         <link rel="stylesheet" type="text/css" href="{{ asset('css/metisMenu.min.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('bundles/adesignscalendar/css/fullcalendar/fullcalendar.css') }}" />
 
 
         {% endblock %}
@@ -40,6 +41,10 @@
         <script src="{{ asset('js/metisMenu.min.js') }}"></script>
         <script src="{{ asset('js/sb-admin-2.js') }}"></script>
         <script src="{{ asset('bundles/baloupage/ckeditor/ckeditor.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/fullcalendar/jquery.fullcalendar.min.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('bundles/adesignscalendar/js/calendar-settings.js') }}"></script>
 
         {% endblock %}
     </body>

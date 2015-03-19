@@ -28,7 +28,7 @@
 
 
 
-                                {% for block in entity.menu %}
+                                
                                     <h4>{{ entity.nom }}</h4>
                                     <a href="{{ path('admin_menu_new') }}">
                                         <button type="button" class="btn btn-primary">Ajoutez un menu</button>
@@ -42,21 +42,22 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    
-                                        <tr>    
-                                            <td>
+                                    {% for block in entity.menu %}
+                                        <tr>
+                                            <td>    
                                                 <a href="{{ path('admin_menu_show', { 'id': entity.id }) }}">{{ block.nom }}</a>
                                             </td>
                                             <td>
                                                 <a href="{{ path('admin_menu_show', { 'id': entity.id }) }}"><i class="fa fa-eye"></i></a>
                                                 <a href="{{ path('admin_menu_edit', { 'id': entity.id }) }}"><i class="fa fa-pencil"></i></a>
                                                 <a href="{{ path('admin_menu_show', { 'id': entity.id }) }}"><i class="fa fa-trash-o"></i></a>
+
                                             </td>
                                         </tr>
-                                 
+                                            {% endfor %}
                                     </tbody>
                                 </table>
-                                    {% endfor %}
+                                    
 
 
 

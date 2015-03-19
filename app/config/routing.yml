@@ -1,3 +1,14 @@
+adesigns_calendar:
+  resource: "@ADesignsCalendarBundle/Resources/config/routing.xml"
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+balou_notification:
+    resource: "@balouNotificationBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 balou_users:
     resource: "@balouUserBundle/Controller/"
     type:     annotation

@@ -14,25 +14,20 @@
                 {% endfor %}    
             </ul>
                             
-                            <!-- Tab panes -->
-                            <div class="tab-content">
-                            {% for entity in entities %}
-                                <div class="tab-pane fade in {%if loop.index==1 %}active{%endif%}" id="{{ entity.nom }}">
-                                    <h5>Description : {{ entity.description }}</h5>
+            <!-- Tab panes -->
+            <div class="tab-content">
+            {% for entity in entities %}
+                <div class="tab-pane fade in {%if loop.index==1 %}active{%endif%}" id="{{ entity.nom }}">
+                    <h5>Description : {{ entity.description }}</h5>
                                        
-                                            <a href="{{ path('admin_blocmenu_edit', { 'id': entity.id }) }}"><i class="fa fa-pencil"></i></a>
-                                        
-                                            <a href="{{ path('admin_blocmenu_edit', { 'id': entity.id }) }}"><i class="fa fa-trash-o"></i></a>
+                        <a href="{{ path('admin_blocmenu_edit', { 'id': entity.id }) }}"><i class="fa fa-pencil"></i></a>
+                        <a href="{{ path('admin_blocmenu_edit', { 'id': entity.id }) }}"><i class="fa fa-trash-o"></i></a>
+                        <br/>
 
 
-
-                                
-                                    <h4>{{ entity.nom }}</h4>
-                                    <a href="{{ path('admin_menu_new') }}">
-                                        <button type="button" class="btn btn-primary">Ajoutez un menu</button>
-                                    </a>
-                                    <hr>
-                                    <table class="table table-striped">
+                        <a href="{{ path('admin_menu_new') }}"><button type="button" class="btn btn-primary">Ajoutez un menu</button></a>
+                            <hr>
+                                <table class="table table-striped">
                                     <thead>
                                         <tr>
                                             <th>Nom</th>
@@ -55,17 +50,12 @@
                                             {% endfor %}
                                     </tbody>
                                 </table>
-                                    
-
-
-
-                                </div>
-                             {% endfor %}  
-                            </div>
-                          
-                        
+                
             </div>
-
+            {% endfor %}  
+        </div>
+                                        
+    </div>
     {% endblock %}
 
 

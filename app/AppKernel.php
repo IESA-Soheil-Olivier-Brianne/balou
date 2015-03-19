@@ -34,6 +34,8 @@ class AppKernel extends Kernel
             new balou\FrontBundle\balouFrontBundle(),
             new AgenceBundle\AgenceBundle(),
             new balou\NotificationBundle\balouNotificationBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new ADesigns\CalendarBundle\ADesignsCalendarBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -32,6 +32,11 @@ class DefaultController extends Controller
         $htmlBlocLeft = $htmlRepository->findOneBy(array('nom' => 'Left'));
         //var_dump($menuBloc->getMenu()->toArray());
         //var_dump($page); die();
+<<<<<<< HEAD
         return $this->render('balouFrontBundle:Default:index.html.twig', array('header'=>$menuBlocHeader, 'page'=>$page, 'css'=>$cssBloc, 'htmlR'=>$htmlBlocRight,'htmlL'=>$htmlBlocLeft, 'footer' => $menuBlocFooter));
+=======
+
+        return $this->render('balouFrontBundle:Default:index.html.twig', array('header'=>$menuBlocHeader, 'page'=>$page, 'css'=>$cssBloc, 'htmlR'=>$htmlBlocRight,'htmlL'=>$htmlBlocLeft));
+>>>>>>> 8914b10d65c62ae0c140894124df29dc6fa80568
     }
 }

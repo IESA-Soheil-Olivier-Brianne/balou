@@ -1,16 +1,14 @@
 {% extends '::base.html.twig' %}
-{% block title %}page creation{% endblock %}
+{% block title %}Créer une page{% endblock %}
 
 {% block body -%}
 
-	<div class="pagecontent">
-	    
+	<div class="pagecontent">    
 
 	    {{ form(form) }}
 
-	    <a href="{{ path('page') }}">
-	        <button type="button" class="btn btn-primary">Retour aux pages</button>
-	    </a>
+	    <a href="{{ path('page') }}"><button type="button" class="btn btn-primary">Retour aux pages</button></a>
+
 	</div>
 
 

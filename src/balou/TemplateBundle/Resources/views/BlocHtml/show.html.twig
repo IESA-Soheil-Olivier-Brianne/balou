@@ -1,7 +1,7 @@
 {% extends '::base.html.twig' %}
+{% block title %}Le Bloc HMTL{% endblock %}
 
 {% block body -%}
-    <h1>BlocHtml</h1>
 
     <table class="record_properties">
         <tbody>
@@ -16,17 +16,11 @@
         </tbody>
     </table>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('admin_blochtml') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('admin_blochtml_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+
+        <a href="{{ path('admin_blochtml') }}"><button type="button" class="btn btn-primary">Retour à la liste</button></a>
+    
+        <a href="{{ path('admin_blochtml_edit', { 'id': entity.id }) }}"><button type="button" class="btn btn-primary">Modifier</button></a>
+   
+   {{ form(delete_form) }}
+
 {% endblock %}

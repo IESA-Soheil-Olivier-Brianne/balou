@@ -1,38 +1,46 @@
 {% extends '::base.html.twig' %}
-{% block title %}Media list{% endblock %}
+{% block title %}Liste des Medias{% endblock %}
 
 {% block body -%}
 
+<div class="col-lg-*">
+  <a class="create-new" href="{{ path('admin_media_new') }}"><button type="button" class="btn btn-primary">Ajouter un media</button></a>
+</div>
+
 <section id="portfolio" class="bg-light-gray">
-
-  <div class="row">
-    <div class="col-md-4 col-sm-6 portfolio-item">
-      <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">   
-    </div>
-
-       {% for entity in entities %}  
-          <div class="gallery_item_preview">
-            <a target="_blank" href="{{ asset('uploads/documents/' ~ entity.path) }}">
-              <img src="{{ asset('/balou/web/timthumb.php?w=300&h=300&src=/balou/web/uploads/documents/' ~ entity.path) }}" alt="{{ entity.descriptionMedia }}" />
-            </a>
-
-              <div class="portfolio-caption">
-                <h4>{{ entity.titreMedia }}</h4>
-                <p>{{ entity.descriptionMedia }}</p>
-              </div>
-
-         
-            <a href="{{ path('admin_media_show', { 'id': entity.id }) }}"><button type="button" class="btn btn-primary btn-lg">Détail</button></a>
-            <a href="{{ path('admin_media_edit', { 'id': entity.id }) }}"><button type="button" class="btn btn-primary btn-lg">Modifiez</button></a>
-
+  <div class="container">
+    <div class="row">
+      {% for entity in entities %}
+      <div class="col-md-4 col-sm-6 portfolio-item">
+      
+        <a target="_blank" href="{{ asset('uploads/documents/' ~ entity.path) }}" class="portfolio-link" data-toggle="modal">
+          
+          <div class="portfolio-hover">
+            <div class="portfolio-hover-content">
+              <i class="fa fa-plus fa-3x"></i>
+            </div>
           </div>
-        {% endfor %}
 
-    </div>
-  </div>
+          <img src="{{ asset('/balou/web/timthumb.php?w=300&h=300&src=/balou/web/uploads/documents/' ~ entity.path) }}" class="img-responsive" alt="{{ entity.descriptionMedia }}">
+
+        </a>
+        <div class="portfolio-caption">
+          <h4>{{ entity.titreMedia }}</h4>
+          <p class="text-muted">{{ entity.descriptionMedia }}</p>
+
+          <a href="{{ path('page_show', { 'id': entity.id }) }}"><i class="fa fa-eye"></i></a>
+          <a href="{{ path('page_edit', { 'id': entity.id }) }}"><i class="fa fa-pencil"></i></a>
+          <a href="{{ path('page_show', { 'id': entity.id }) }}"><i class="fa fa-trash-o"></i></a>
+
+        </div>
+        
+      
+
+      </div><!-- Div col -->
+      {% endfor %}
+      
+    </div><!-- Div row -->
+  </div><!-- Div container -->
 </section>
 
-
-
-<a href="{{ path('admin_media_new') }}">Create a new entry</a>
 {% endblock %}

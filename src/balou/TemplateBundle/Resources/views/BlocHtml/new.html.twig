@@ -1,15 +1,10 @@
 {% extends '::base.html.twig' %}
+{% block title %}Créer un Bloc HMTL{% endblock %}
 
 {% block body -%}
-    <h1>BlocHtml creation</h1>
 
     {{ form(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('admin_blochtml') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+    <a href="{{ path('admin_blochtml') }}"><button type="button" class="btn btn-primary">Retour aux blocs</button></a>
+
 {% endblock %}

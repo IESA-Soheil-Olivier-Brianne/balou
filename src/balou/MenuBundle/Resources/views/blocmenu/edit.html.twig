@@ -1,13 +1,11 @@
 {% extends '::base.html.twig' %}
-{% block title %}blocmenu edit{% endblock %}
+{% block title %}Modifier votre bloc de menu{% endblock %}
 
 {% block body -%}
 
     {{ form(edit_form) }}
 
-        <a href="{{ path('admin_blocmenu') }}">
-            <button type="button" class="btn btn-primary">Revenir aux blocs de menu</button>
-        </a>
+        <a href="{{ path('admin_blocmenu') }}"><button type="button" class="btn btn-primary">Revenir aux blocs de menu</button></a>
 
 
     {{ form(delete_form) }}

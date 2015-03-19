@@ -38,7 +38,7 @@ class TemplateController extends Controller
     /**
      * Creates a new Template entity.
      *
-     * @Route("/", name="admin_Template_create")
+     * @Route("/", name="admin_template_create")
      * @Method("POST")
      * @Template("balouTemplateBundle:Template:new.html.twig")
      */
@@ -84,7 +84,7 @@ class TemplateController extends Controller
     /**
      * Displays a form to create a new Template entity.
      *
-     * @Route("/new", name="admin_Template_new")
+     * @Route("/new", name="admin_template_new")
      * @Method("GET")
      * @Template()
      */
@@ -103,7 +103,7 @@ class TemplateController extends Controller
     /**
      * Finds and displays a Template entity.
      *
-     * @Route("/{id}", name="admin_Template_show")
+     * @Route("/{id}", name="admin_template_show")
      * @Method("GET")
      * @Template()
      */
@@ -128,7 +128,7 @@ class TemplateController extends Controller
     /**
      * Displays a form to edit an existing Template entity.
      *
-     * @Route("/{id}/edit", name="admin_Template_edit")
+     * @Route("/{id}/edit", name="admin_template_edit")
      * @Method("GET")
      * @Template()
      */
@@ -173,7 +173,7 @@ class TemplateController extends Controller
     /**
      * Edits an existing Template entity.
      *
-     * @Route("/{id}", name="admin_Template_update")
+     * @Route("/{id}", name="admin_template_update")
      * @Method("PUT")
      * @Template("balouTemplateBundle:Template:edit.html.twig")
      */
@@ -206,7 +206,7 @@ class TemplateController extends Controller
     /**
      * Deletes a Template entity.
      *
-     * @Route("/{id}", name="admin_Template_delete")
+     * @Route("/{id}", name="admin_template_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)

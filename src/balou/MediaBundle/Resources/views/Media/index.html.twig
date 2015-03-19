@@ -3,42 +3,30 @@
 
 {% block body -%}
 
-<div class="wrapper">
-  <div class="wrapper_inner">
-    <!-- Gallery -->
-    <section class="gallery">
-      <!-- items -->
-      <div class="gallery_item">
-        <!-- vignettes -->
+<div class="row">
+  <div class="col-md-4 col-sm-6 portfolio-item">
+    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">   
+   </div>
+
      {% for entity in entities %}  
         <div class="gallery_item_preview">
-          <a href="#" data-js="{{loop.index}}">
-          
+          <a target="_blank" href="{{ asset('uploads/documents/' ~ entity.path) }}">
             <img src="{{ asset('timthumb.php?w=300&h=300&src=uploads/documents/' ~ entity.path) }}" alt="{{ entity.descriptionMedia }}" /><div>
-            <h4>{{ entity.titreMedia }}</h4>
-            <p>{{ entity.descriptionMedia }}</p> 
-            <p>{{ entity.path }}</p>   
-        </a>
+          </a>
+
+            <div class="portfolio-caption">
+              <h4>{{ entity.titreMedia }}</h4>
+              <p>{{ entity.descriptionMedia }}</p>
+            </div>   
        
-       <a href="{{ path('admin_media_show', { 'id': entity.id }) }}">voir</a>
-            <a href="{{ path('admin_media_edit', { 'id': entity.id }) }}">Modifiez</a>
-        <!-- Zoom de l'image -->
-        
-        <div data-lk="{{loop.index}}" class="gallery_item_full">
-          <div class="box">
-            <img src="{{ asset('uploads/documents/' ~ entity.path) }}" alt="{{ entity.descriptionMedia }}" />
-            <h4>{{ entity.titreMedia }}</h4>
-            <p>{{ entity.descriptionMedia }}</p>
-          </div>
-        </div>
-      </div>
+          <button type="submit" class="btn btn-xl"><a href="{{ path('admin_media_show', { 'id': entity.id }) }}">Détail</a></button>
+          <button type="submit" class="btn btn-xl"><a href="{{ path('admin_media_edit', { 'id': entity.id }) }}">Modifiez</a></button>
       {% endfor %}
+
     </section>
   </div>
 </div>
 
 
-<a href="{{ path('admin_media_new') }}">
-                Create a new entry
-            </a>
+<a href="{{ path('admin_media_new') }}">Create a new entry</a>
 {% endblock %}

@@ -313,7 +313,6 @@ table.dataTable thead .sorting:after {
 }
 
 .panel-body form div input{
-    text-align: right;
     display: block;
     width: 100%;
     height: 2.5em;

@@ -1,3 +1,11 @@
 balou_home_homepage:
     path:     /
     defaults: { _controller: balouHomeBundle:Default:index}
+
+balou_admin_notes:
+    path:     /admin/notes
+    defaults: { _controller: balouHomeBundle:Notes:index}
+
+balou_admin_notes_show:
+    path:     /admin/notes
+    defaults: { _controller: balouHomeBundle:Notes:show}

@@ -3,8 +3,8 @@
 
 
 {% block body %} 
-<p id="who-is-online">
-    <strong>Utilisateurs en ligne ({{ usersOnline|length }}) :</strong>
+<p>
+    <strong>Utilisateurs en ligne ({{ usersOnline|length }}) </strong>
 </p>
 <ul>
 	{% for user in usersOnline %}
@@ -12,6 +12,16 @@
     {% endfor %}
 </ul>
 
-{% include 'ADesignsCalendarBundle::calendar.html.twig' %}
+<p>
+    <strong>Nombre de pages : ({{ pages|length }}) </strong>
+</p>
+
+<p>
+    <strong>Nombre de notifications : ({{ notescount|length }}) </strong>
+</p>
+
+<p>{% include 'ADesignsCalendarBundle::calendar.html.twig' %}</p>
+
+<p>{{ notes.note }}</p>
                                                             
 {% endblock %}

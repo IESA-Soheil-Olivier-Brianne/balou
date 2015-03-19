@@ -1,12 +1,12 @@
 <?php
 
-namespace balou\TemplateBundle\Form;
+namespace balou\HomeBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class TemplateType extends AbstractType
+class NotesType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,8 +15,8 @@ class TemplateType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom')
-            ->add('contenu','textarea')
+            ->add('note')
+            ->add('createdAt')
         ;
     }
     
@@ -26,7 +26,7 @@ class TemplateType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'balou\TemplateBundle\Entity\Template'
+            'data_class' => 'balou\HomeBundle\Entity\Notes'
         ));
     }
 
@@ -35,6 +35,6 @@ class TemplateType extends AbstractType
      */
     public function getName()
     {
-        return 'balou_Templatebundle_Template';
+        return 'balou_homebundle_notes';
     }
 }

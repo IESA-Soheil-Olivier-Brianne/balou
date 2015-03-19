@@ -13,7 +13,7 @@ use balou\TemplateBundle\Form\TemplateType;
 /**
  * Template controller.
  *
- * @Route("/admin/Template")
+ * @Route("/admin/template")
  */
 class TemplateController extends Controller
 {
@@ -38,7 +38,7 @@ class TemplateController extends Controller
     /**
      * Creates a new Template entity.
      *
-     * @Route("/", name="admin_Template_create")
+     * @Route("/", name="admin_template_create")
      * @Method("POST")
      * @Template("balouTemplateBundle:Template:new.html.twig")
      */
@@ -53,7 +53,7 @@ class TemplateController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('admin_Template_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('admin_template_show', array('id' => $entity->getId())));
         }
 
         return array(
@@ -72,7 +72,7 @@ class TemplateController extends Controller
     private function createCreateForm(Templateentity $entity)
     {
         $form = $this->createForm(new TemplateType(), $entity, array(
-            'action' => $this->generateUrl('admin_Template_create'),
+            'action' => $this->generateUrl('admin_template_create'),
             'method' => 'POST',
         ));
 
@@ -84,7 +84,7 @@ class TemplateController extends Controller
     /**
      * Displays a form to create a new Template entity.
      *
-     * @Route("/new", name="admin_Template_new")
+     * @Route("/new", name="admin_template_new")
      * @Method("GET")
      * @Template()
      */
@@ -103,7 +103,7 @@ class TemplateController extends Controller
     /**
      * Finds and displays a Template entity.
      *
-     * @Route("/{id}", name="admin_Template_show")
+     * @Route("/{id}", name="admin_template_show")
      * @Method("GET")
      * @Template()
      */
@@ -128,7 +128,7 @@ class TemplateController extends Controller
     /**
      * Displays a form to edit an existing Template entity.
      *
-     * @Route("/{id}/edit", name="admin_Template_edit")
+     * @Route("/{id}/edit", name="admin_template_edit")
      * @Method("GET")
      * @Template()
      */
@@ -159,10 +159,10 @@ class TemplateController extends Controller
     *
     * @return \Symfony\Component\Form\Form The form
     */
-    private function createEditForm(Template $entity)
+    private function createEditForm(Templateentity $entity)
     {
         $form = $this->createForm(new TemplateType(), $entity, array(
-            'action' => $this->generateUrl('admin_Template_update', array('id' => $entity->getId())),
+            'action' => $this->generateUrl('admin_template_update', array('id' => $entity->getId())),
             'method' => 'PUT',
         ));
 
@@ -173,7 +173,7 @@ class TemplateController extends Controller
     /**
      * Edits an existing Template entity.
      *
-     * @Route("/{id}", name="admin_Template_update")
+     * @Route("/{id}", name="admin_template_update")
      * @Method("PUT")
      * @Template("balouTemplateBundle:Template:edit.html.twig")
      */
@@ -194,7 +194,7 @@ class TemplateController extends Controller
         if ($editForm->isValid()) {
             $em->flush();
 
-            return $this->redirect($this->generateUrl('admin_Template_edit', array('id' => $id)));
+            return $this->redirect($this->generateUrl('admin_template_edit', array('id' => $id)));
         }
 
         return array(
@@ -206,7 +206,7 @@ class TemplateController extends Controller
     /**
      * Deletes a Template entity.
      *
-     * @Route("/{id}", name="admin_Template_delete")
+     * @Route("/{id}", name="admin_template_delete")
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)
@@ -239,7 +239,7 @@ class TemplateController extends Controller
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
-            ->setAction($this->generateUrl('admin_Template_delete', array('id' => $id)))
+            ->setAction($this->generateUrl('admin_template_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()

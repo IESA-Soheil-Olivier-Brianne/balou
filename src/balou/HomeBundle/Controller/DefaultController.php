@@ -12,8 +12,17 @@ class DefaultController extends Controller
         $usersRepository = $this->getDoctrine()->getManager()->getRepository('balouUserBundle:User');
         $users=$usersRepository->getActive();
 
+        $pagesRepository = $this->getDoctrine()->getManager()->getRepository('balouPageBundle:page');
+        $pages=$pagesRepository->findAll();
+
+        $notesRepository = $this->getDoctrine()->getManager()->getRepository('balouHomeBundle:Notes');
+        $notes=$notesRepository->findNote();
+        //var_dump($notes);
+
+        $notesCountRepository = $this->getDoctrine()->getManager()->getRepository('balouHomeBundle:Notes');
+        $notesCount=$notesCountRepository->findNote();
  
-        return $this->render('balouHomeBundle::admin-dashboard.html.twig',array('usersOnline' => $users));
+        return $this->render('balouHomeBundle::admin-dashboard.html.twig',array('usersOnline' => $users, 'pages' =>$pages,'notes' => $notes, 'notescount' => $notesCount));
     }
 
 }

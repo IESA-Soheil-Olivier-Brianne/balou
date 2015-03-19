@@ -34,7 +34,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     {% for lien in header.menu %}
-    					<li><a href="{{ lien.url }}">{{ lien.nom }}</a></li>
+    					<li><a href="{{ lien.url }}" {% if lien.url == page.url %} class="active"{% endif %}>{{ lien.nom }}</a></li>
   					{% endfor %}
                 </ul>
             </div>

@@ -55,6 +55,11 @@ class page
     private $menu;
 
     /**
+     * @ORM\OneToMany(targetEntity="\balou\TemplateBundle\Entity\Articles", mappedBy="pageArticle")
+     */
+    private $article;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -162,7 +167,7 @@ class page
      * @param \balou\PageBundle\Entity\menu $menu
      * @return page
      */
-    public function setMenu(\balou\PageBundle\Entity\menu $menu = null)
+    public function setMenu(\balou\MenuBundle\Entity\menu $menu = null)
     {
         $this->menu = $menu;
 
@@ -179,31 +184,4 @@ class page
         return $this->menu;
     }
 
-    // /**
-    //  * Set template
-    //  *
-    //  * @param \balou\TemplateBundle\Entity\template $template
-    //  * @return page
-    //  */
-    // public function setTemplate(\balou\TemplateBundle\Entity\template $template = null)
-    // {
-    //     $this->template = $template;
-
-    //     return $this;
-    // }
-
-    // /**
-    //  * Get template
-    //  *
-    //  * @return \balou\TemplateBundle\Entity\template 
-    //  */
-    // public function getTemplate()
-    // {
-    //     return $this->template;
-    // }
-
-    // public function __toString()
-    // {
-    //     return $this->title;
-    // }
 }

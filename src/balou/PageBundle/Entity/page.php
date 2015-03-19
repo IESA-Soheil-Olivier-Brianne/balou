@@ -55,6 +55,11 @@ class page
     private $menu;
 
     /**
+     * @ORM\OneToMany(targetEntity="\balou\PageBundle\Entity\Articles", mappedBy="pageArticle")
+     */
+    private $article;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -179,4 +184,49 @@ class page
         return $this->menu;
     }
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->article = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add article
+     *
+     * @param \balou\PageBundle\Entity\Articles $article
+     * @return page
+     */
+    public function addArticle(\balou\PageBundle\Entity\Articles $article)
+    {
+        $this->article[] = $article;
+
+        return $this;
+    }
+
+    /**
+     * Remove article
+     *
+     * @param \balou\PageBundle\Entity\Articles $article
+     */
+    public function removeArticle(\balou\PageBundle\Entity\Articles $article)
+    {
+        $this->article->removeElement($article);
+    }
+
+    /**
+     * Get article
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getArticle()
+    {
+        return $this->article;
+    }
+
+    public function __toString()
+    {
+        return $this->title;
+    }
 }

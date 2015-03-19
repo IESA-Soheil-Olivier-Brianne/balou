@@ -48,7 +48,9 @@
 
         <div class="row">
         	{% for htmlLeft in htmlL.Html %}
+        	<div class="well">
     					{{ htmlLeft.contenu|raw }}
+    		</div>
   			{% endfor %}
             <!-- Blog Entries Column -->
             <div class="col-md-8">
@@ -121,7 +123,11 @@
             <!-- Blog Sidebar Widgets Column -->
             <div class="col-md-4">
             	{% for html in htmlR.Html %}
+            	<div class="well">
+            		<div class="row">
     					{{ html.contenu|raw }}
+    				</div>
+    			</div>
   				{% endfor %}
                 <!-- Blog Search Well -->
                <!--  <div class="well">
@@ -188,6 +194,11 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
+                	<ul>
+                	{% for lien in footer.menu %}
+    					<li><a href="{{ lien.url }}" {% if lien.url == page.url %} class="active"{% endif %}>{{ lien.nom }}</a></li>
+  					{% endfor %}
+  					</ul>
                     <p>Copyright &copy; Balou 2015</p>
                 </div>
                 <!-- /.col-lg-12 -->

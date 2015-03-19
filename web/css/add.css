@@ -167,4 +167,17 @@ section h3.section-subheading {
     }
 }
 
-.f-nav{ z-index: 9999; position: fixed; left: 0; top: 0; width: 100%;} 
+.f-nav{ z-index: 9999; position: fixed; left: 0; top: 0; width: 100%;}
+
+@media (min-width: 768px){
+    .container{
+        width: auto;
+    }
+
+}
+@media (min-width: 400px){
+    .container{
+        width: auto;
+    }
+
+}

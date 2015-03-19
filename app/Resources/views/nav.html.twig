@@ -9,7 +9,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ path ('balou_home_homepage')}}">Balou</a>
+                <a class="navbar-brand" href="{{ path ('balou_home_homepage')}}"><img src="../img/logos/logo.svg" class="img-responsive" alt=""></a>
             </div>
             <!-- /.navbar-header -->
 
@@ -61,17 +61,33 @@
                                     <a href="{{ path('page') }}"><i class="fa fa-files-o"></i> Pages</a>
                                 </li>
                                 <li>
-                                    <a href="{{ path('admin_media') }}"><i class="glyphicon glyphicon-picture"></i> Galerie</a>
+                                    <a href="{{ path('admin_articles') }}"><i class="fa fa-newspaper-o"></i> Articles</a>
                                 </li>
                                 <li>
-                                    <a href="{{ path('admin_blochtml') }}"><i class="fa fa-cogs"></i> Configuration</a>
+                                    <a href="{{ path('admin_media') }}"><i class="glyphicon glyphicon-picture"></i> Galerie</a>
                                 </li>
+                                
                             </ul>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_blochtml') }}"><i class="fa fa-cogs"></i> Configuration<span class="fa arrow"></span></a>
+                                    
+                                <li>
+                                <a href="{{ path('admin_blocmenu') }}">Blocs HTML</a>
+                                </li>
+                            <li>
+                                            <a href="{{ path('page') }}">CSS</a>
+                                        </li>
+                                    
+                                </li>
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-puzzle-piece"></i> Modules<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="{{ path('admin_notes') }}"><i class="fa fa-thumb-tack"></i> Notes</a>
+                                </li>
                                 <li>
                                     <a href="#"><i class="fa fa-newspaper-o"></i> Actualités</a>
                                 </li>

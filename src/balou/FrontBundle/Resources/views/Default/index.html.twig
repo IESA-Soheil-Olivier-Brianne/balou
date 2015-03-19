@@ -1,228 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <title>Balou - Front</title>
 
-<head>
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}"/>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
+        <link rel="stylesheet" type="text/css" href="{{ asset('css/add.css') }}"/>
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <style>
+            {{ css.contenu }}
+        </style>
 
-    <title>Balou - Front</title>
-
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}"/>
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"/>
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/add.css') }}"/>
-    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    <style>
-     	{{ css.contenu }}
-    </style>
-
-</head>
-
-<body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Start Bootstrap</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    </head>
+    
+    <body>
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="navbar-header">
+        <a class="navbar-brand" rel="home" href="#">Balou</a>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+    </div>
+    <div class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     {% for lien in header.menu %}
-    					<li><a href="{{ lien.url }}" {% if lien.url == page.url %} class="active"{% endif %}>{{ lien.nom }}</a></li>
-  					{% endfor %}
+                        <li><a href="{{ lien.url }}" {% if lien.url == page.url %} class="active"{% endif %}>{{ lien.nom }}</a></li>
+                    {% endfor %}
                 </ul>
-            </div>
-            <!-- /.navbar-collapse -->
         </div>
-        <!-- /.container -->
-    </nav>
+    </div>
+</nav>
 
-    <!-- Page Content -->
-    <div class="container">
+<div class="container-fluid">
+  
+  <!--left-->
+  <div class="col-sm-3">
 
-        <div class="row">
-        	{% for htmlLeft in htmlL.Html %}
-        	<div class="well">
-    					{{ htmlLeft.contenu|raw }}
-    		</div>
-  			{% endfor %}
-            <!-- Blog Entries Column -->
-            <div class="col-md-8">
+        <div class="panel panel-default">
+            {% for htmlLeft in htmlL.Html %}
+            <div class="well">
+                        {{ htmlLeft.contenu|raw }}
+            </div>
+            {% endfor %}
+        </div>
+  </div><!--/left-->
 
+  
+  <!--center-->
+  <div class="col-sm-6">
+    <div class="row">
+      <div class="col-xs-12">
+                
                 <h1 class="page-header">
                     {{ page.title }}
-                    <small>Secondary Text</small>
                 </h1>
 
-                <!-- First Blog Post -->
-                 {% for article in page.article %}
-        	
-  				
-                <h2>
-                    <a href="#">{{ article.titre}}</a>
-                </h2>
-                <p class="lead">
-                    by <a href="index.php">{{ article.auteur }}</a>
-                </p>
-                <p>{{ article.contenu| raw }}</p>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on {{ article.createdAt|date('Y-m-d') }}</p>
-                <hr>
-                {% endfor %}
-                <img class="img-responsive" src="http://placehold.it/900x300" alt="">
-                <hr>
-<<<<<<< HEAD
-                {{ page.content }}
+            {{ page.content|raw }}
 
-=======
-                {{ page.content|raw }}
->>>>>>> a6199d0cf426b6f5748f014e6e8ec3a43e4ba5fe
-                <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+{% for article in page.article %}
+    <hr>
+    <h2>
+            <a href="#">{{ article.titre}}</a>
+    </h2>
+    <p class="lead">
+        Par <a href="index.php">{{ article.auteur }}</a>
+    </p>
+    <p>{{ article.contenu| raw }}</p>
+    <p><span class="glyphicon glyphicon-time"></span> Posté le {{ article.createdAt|date('Y-m-d') }}</p>
+    <hr>
+{% endfor %}
 
-                <hr>
+      </div> 
+    </div>  
 
-                <!-- Second Blog Post -->
-                <!-- <h2> -->
-                <!--     <a href="#">Blog Post Title</a>
-                </h2>
-                <p class="lead">
-                    by <a href="index.php">Start Bootstrap</a>
-                </p>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:45 PM</p>
-                <hr>
-                <img class="img-responsive" src="http://placehold.it/900x300" alt="">
-                <hr>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, quasi, fugiat, asperiores harum voluptatum tenetur a possimus nesciunt quod accusamus saepe tempora ipsam distinctio minima dolorum perferendis labore impedit voluptates!</p>
-                <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+  </div><!--/center-->
 
-                <hr> -->
 
-                <!-- Third Blog Post -->
-                <!-- <h2>
-                    <a href="#">Blog Post Title</a>
-                </h2>
-                <p class="lead">
-                    by <a href="index.php">Start Bootstrap</a>
-                </p>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:45 PM</p>
-                <hr>
-                <img class="img-responsive" src="http://placehold.it/900x300" alt="">
-                <hr>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, voluptates, voluptas dolore ipsam cumque quam veniam accusantium laudantium adipisci architecto itaque dicta aperiam maiores provident id incidunt autem. Magni, ratione.</p>
-                <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
-
-                <hr> -->
-
-                <!-- Pager -->
-                <ul class="pager">
-                    <li class="previous">
-                        <a href="#">&larr; Older</a>
-                    </li>
-                    <li class="next">
-                        <a href="#">Newer &rarr;</a>
-                    </li>
-                </ul>
-
-            </div>
-
-            <!-- Blog Sidebar Widgets Column -->
-            <div class="col-md-4">
-            	{% for html in htmlR.Html %}
-            	<div class="well">
-            		<div class="row">
-    					{{ html.contenu|raw }}
-    				</div>
-    			</div>
-  				{% endfor %}
-                <!-- Blog Search Well -->
-               <!--  <div class="well">
-                    <h4>Blog Search</h4>
-                    <div class="input-group">
-                        <input type="text" class="form-control">
-                        <span class="input-group-btn">
-                            <button class="btn btn-default" type="button">
-                                <span class="glyphicon glyphicon-search"></span>
-                        </button>
-                        </span>
-                    </div> -->
-                    <!-- /.input-group -->
-               <!--  </div> -->
-
-                <!-- Blog Categories Well -->
-                <!-- <div class="well">
-                    <h4>Blog Categories</h4>
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                            </ul>
-                        </div> -->
-                        <!-- /.col-lg-6 -->
-                       <!--  <div class="col-lg-6">
-                            <ul class="list-unstyled">
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                                <li><a href="#">Category Name</a>
-                                </li>
-                            </ul>
-                        </div> -->
-                        <!-- /.col-lg-6 -->
-                   <!--  </div> -->
-                    <!-- /.row -->
-                <!-- </div> -->
-
-                <!-- Side Widget Well -->
-               <!--  <div class="well">
-                    <h4>Side Widget Well</h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore, perspiciatis adipisci accusamus laudantium odit aliquam repellat tempore quos aspernatur vero.</p>
-                </div> -->
-
-            </div>
-
+<!--right-->
+  <div class="col-sm-3">
+        <div class="panel panel-default">
+            {% for html in htmlR.Html %}
+                <div class="well">
+                        {{ html.contenu|raw }}
+                </div>
+            {% endfor %}
         </div>
-        <!-- /.row -->
+  </div><!--/right-->
 
-        <hr>
 
-        <!-- Footer -->
-        <footer>
+</div>
+<!--/container-fluid-->
+ 
+<footer>
             <div class="row">
                 <div class="col-lg-12">
-                	<ul>
-                	{% for lien in footer.menu %}
-    					<li><a href="{{ lien.url }}" {% if lien.url == page.url %} class="active"{% endif %}>{{ lien.nom }}</a></li>
-  					{% endfor %}
-  					</ul>
+                    <ul class="nav navbar-nav">
+                    {% for lien in footer.menu %}
+                        <li><a href="{{ lien.url }}" {% if lien.url == page.url %} class="active"{% endif %}>{{ lien.nom }}</a></li>
+                    {% endfor %}
                     <p>Copyright &copy; Balou 2015</p>
+                    </ul>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
-        </footer>
+</footer>
 
-    </div>
-    <!-- /.container -->
-		<script src="//code.jquery.com/jquery.min.js"></script>
-        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('js/add.js') }}"></script>
-  
-
-</body>
-
+    <!-- script references -->
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/add.js') }}"></script>
+        
+    </body>
 </html>

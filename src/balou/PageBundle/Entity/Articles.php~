@@ -50,7 +50,7 @@ class Articles
     private $auteur;
 
     /**
-     * @ORM\ManyToOne(targetEntity="\balou\PageBundle\Entity\page", inversedBy="article")
+     * @ORM\ManyToOne(targetEntity="\balou\TemplateBundle\Entity\page", inversedBy="article")
      */
     private $pageArticle;
 
@@ -156,28 +156,5 @@ class Articles
     public function getAuteur()
     {
         return $this->auteur;
-    }
-
-    /**
-     * Set pageArticle
-     *
-     * @param \balou\PageBundle\Entity\page $pageArticle
-     * @return Articles
-     */
-    public function setPageArticle(\balou\pageBundle\Entity\page $pageArticle = null)
-    {
-        $this->pageArticle = $pageArticle;
-
-        return $this;
-    }
-
-    /**
-     * Get pageArticle
-     *
-     * @return \balou\PageBundle\Entity\page 
-     */
-    public function getPageArticle()
-    {
-        return $this->pageArticle;
     }
 }

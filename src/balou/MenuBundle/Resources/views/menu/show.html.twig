@@ -3,49 +3,48 @@
 {% block body -%}
 
 <div class="row">
-                <div class="col-lg-6">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
+    <div class="col-lg-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
 
-                            <h4>Les informations de votre menu</h4>
+                <h4>Les informations de votre menu</h4>
 
-                            <a href="{{ path('admin_blocmenu') }}">
-                                <button type="button" class="btn btn-primary">Revenir aux blocs de menu</button>
-                            </a>
-                        </div>
-                        <!-- /.panel-heading -->
-                        <div class="panel-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped">
-                                    <thead>
-                                        <tr>
-                                            <th>#</th>
-                                            <th>Nom</th>
-                                            <th>Url</th>
-                                            <th>État</th>
-                                            <th>Éditer</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><a href="{{ path('admin_menu_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                                            <td>{{ entity.nom }}</td>
-                                            <td>{{ entity.url }}</td>
-                                            <td>{{ entity.isClicked }}</td>
-                                            <td>
-                                                <a href="{{ path('admin_menu_edit', { 'id': entity.id }) }}"><i class="fa fa-pencil"></i></a>
-                                                <a href="{{ path('admin_menu_show', { 'id': entity.id }) }}"><i class="fa fa-trash-o"></i></a>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- /.table-responsive -->
-                        </div>
-                        <!-- /.panel-body -->
-                    </div>
-                    <!-- /.panel -->
+                    <a href="{{ path('admin_blocmenu') }}"><button type="button" class="btn btn-primary">Revenir aux blocs de menu</button></a>
+            </div>
+             <!-- /.panel-heading -->
+            <div class="panel-body">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nom</th>
+                                <th>Url</th>
+                                <th>État</th>
+                                <th>Éditer</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                               <td><a href="{{ path('admin_menu_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                                <td>{{ entity.nom }}</td>
+                                <td>{{ entity.url }}</td>
+                                <td>{{ entity.isClicked }}</td>
+                                <td>
+                                    <a href="{{ path('admin_menu_edit', { 'id': entity.id }) }}"><i class="fa fa-pencil"></i></a>
+                                    <a href="{{ path('admin_menu_show', { 'id': entity.id }) }}"><i class="fa fa-trash-o"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
+            <!-- /.table-responsive -->
+            </div>
+        <!-- /.panel-body -->
+        </div>
+    <!-- /.panel -->
+    </div>
 
-                {{ form(delete_form) }}
+    {{ form(delete_form) }}
+    
 {% endblock %}

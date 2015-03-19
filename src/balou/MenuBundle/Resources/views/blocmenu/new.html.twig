@@ -1,11 +1,9 @@
 {% extends '::base.html.twig' %}
-{% block title %}blocmenu creation{% endblock %}
+{% block title %}Créer un bloc de menu{% endblock %}
 
 {% block body -%}
 
     {{ form(form) }}
 
-       <a href="{{ path('admin_blocmenu') }}">
-        <button type="button" class="btn btn-primary">Revenir aux blocs de menu</button>
-    </a>
+       <a href="{{ path('admin_blocmenu') }}"><button type="button" class="btn btn-primary">Revenir aux blocs de menu</button></a>
 {% endblock %}

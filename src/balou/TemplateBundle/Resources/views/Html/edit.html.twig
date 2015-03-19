@@ -1,16 +1,14 @@
 {% extends '::base.html.twig' %}
+{% block title %}Modifier le contenu HMTL{% endblock %}
 
 {% block body -%}
-    <h1>Html edit</h1>
 
     {{ form(edit_form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('admin_html') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    {{ form(delete_form) }}
+
+    <a href="{{ path('admin_blochtml') }}"><button type="button" class="btn btn-primary">Retour aux blocs HTML</button></a>
+
+    
+
 {% endblock %}

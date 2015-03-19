@@ -1,3 +1,19 @@
+body {
+    overflow-x: hidden;
+    font-family: "Roboto Slab","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-transform: uppercase;
+    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: 700;
+}
+
 input[type=submit].btn-block{
 	background-color: #005996;
 	border-color: #005996;
@@ -20,12 +36,6 @@ input[type=submit].btn-block:focus{
 .open .dropdown-toggle.btn-xl {
 	background-color: #0069A3;
 	border-color: #0069A3;
-}
-
-.create-new{
-  position: absolute;
-  right: 0;
-  margin-bottom: 2em;
 }
 
 section {

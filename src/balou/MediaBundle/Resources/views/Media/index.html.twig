@@ -3,29 +3,35 @@
 
 {% block body -%}
 
-<div class="row">
-  <div class="col-md-4 col-sm-6 portfolio-item">
-    <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">   
-   </div>
+<section id="portfolio" class="bg-light-gray">
 
-     {% for entity in entities %}  
-        <div class="gallery_item_preview">
-          <a target="_blank" href="{{ asset('uploads/documents/' ~ entity.path) }}">
-            <img src="{{ asset('timthumb.php?w=300&h=300&src=uploads/documents/' ~ entity.path) }}" alt="{{ entity.descriptionMedia }}" /><div>
-          </a>
+  <div class="row">
+    <div class="col-md-4 col-sm-6 portfolio-item">
+      <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">   
+    </div>
 
-            <div class="portfolio-caption">
-              <h4>{{ entity.titreMedia }}</h4>
-              <p>{{ entity.descriptionMedia }}</p>
-            </div>   
-       
-          <button type="submit" class="btn btn-xl"><a href="{{ path('admin_media_show', { 'id': entity.id }) }}">Détail</a></button>
-          <button type="submit" class="btn btn-xl"><a href="{{ path('admin_media_edit', { 'id': entity.id }) }}">Modifiez</a></button>
-      {% endfor %}
+       {% for entity in entities %}  
+          <div class="gallery_item_preview">
+            <a target="_blank" href="{{ asset('uploads/documents/' ~ entity.path) }}">
+              <img src="{{ asset('/balou/web/timthumb.php?w=300&h=300&src=/balou/web/uploads/documents/' ~ entity.path) }}" alt="{{ entity.descriptionMedia }}" />
+            </a>
 
-    </section>
+              <div class="portfolio-caption">
+                <h4>{{ entity.titreMedia }}</h4>
+                <p>{{ entity.descriptionMedia }}</p>
+              </div>
+
+         
+            <a href="{{ path('admin_media_show', { 'id': entity.id }) }}"><button type="button" class="btn btn-primary btn-lg">Détail</button></a>
+            <a href="{{ path('admin_media_edit', { 'id': entity.id }) }}"><button type="button" class="btn btn-primary btn-lg">Modifiez</button></a>
+
+          </div>
+        {% endfor %}
+
+    </div>
   </div>
-</div>
+</section>
+
 
 
 <a href="{{ path('admin_media_new') }}">Create a new entry</a>

@@ -24,6 +24,28 @@ input[type=submit].btn-block:focus{
 	border-color: #0069A3;
 }
 
+button{
+    color: white;
+}
+
+form div div button[type=submit]{
+    background-color: #005996;
+    border-color: #005996;
+}
+
+.btn-primary{
+    background-color: #005996;
+    border-color: #005996;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-xl {
+    background-color: #0069A3;
+    border-color: none;
+}
 .btn-success{
 	background-color: #005996;
 	border-color: #005996;
@@ -35,7 +57,7 @@ input[type=submit].btn-block:focus{
 .btn-success.active,
 .open .dropdown-toggle.btn-xl {
 	background-color: #0069A3;
-	border-color: #0069A3;
+	border-color: none;
 }
 
 section {

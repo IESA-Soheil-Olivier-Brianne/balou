@@ -1,16 +1,10 @@
 {% extends '::base.html.twig' %}
-
+{% block title %}Modifier la note{% endblock %}
 {% block body -%}
-    <h1>Notes edit</h1>
 
     {{ form(edit_form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('admin_notes') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+	{{ form(delete_form) }}
+     
+    <a href="{{ path('admin_notes') }}"><button type="button" class="btn btn-primary">Retour à la liste</a>
+   
 {% endblock %}

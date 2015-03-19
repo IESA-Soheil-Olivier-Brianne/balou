@@ -48,7 +48,9 @@
 
         <div class="row">
         	{% for htmlLeft in htmlL.Html %}
+        	<div class="well">
     					{{ htmlLeft.contenu|raw }}
+    		</div>
   			{% endfor %}
             <!-- Blog Entries Column -->
             <div class="col-md-8">
@@ -75,8 +77,8 @@
                 <hr>
 
                 <!-- Second Blog Post -->
-                <h2>
-                    <a href="#">Blog Post Title</a>
+                <!-- <h2> -->
+                <!--     <a href="#">Blog Post Title</a>
                 </h2>
                 <p class="lead">
                     by <a href="index.php">Start Bootstrap</a>
@@ -88,10 +90,10 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, quasi, fugiat, asperiores harum voluptatum tenetur a possimus nesciunt quod accusamus saepe tempora ipsam distinctio minima dolorum perferendis labore impedit voluptates!</p>
                 <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
-                <hr>
+                <hr> -->
 
                 <!-- Third Blog Post -->
-                <h2>
+                <!-- <h2>
                     <a href="#">Blog Post Title</a>
                 </h2>
                 <p class="lead">
@@ -104,7 +106,7 @@
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, voluptates, voluptas dolore ipsam cumque quam veniam accusantium laudantium adipisci architecto itaque dicta aperiam maiores provident id incidunt autem. Magni, ratione.</p>
                 <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
-                <hr>
+                <hr> -->
 
                 <!-- Pager -->
                 <ul class="pager">
@@ -121,7 +123,11 @@
             <!-- Blog Sidebar Widgets Column -->
             <div class="col-md-4">
             	{% for html in htmlR.Html %}
+            	<div class="well">
+            		<div class="row">
     					{{ html.contenu|raw }}
+    				</div>
+    			</div>
   				{% endfor %}
                 <!-- Blog Search Well -->
                <!--  <div class="well">
@@ -188,6 +194,11 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
+                	<ul>
+                	{% for lien in footer.menu %}
+    					<li><a href="{{ lien.url }}" {% if lien.url == page.url %} class="active"{% endif %}>{{ lien.nom }}</a></li>
+  					{% endfor %}
+  					</ul>
                     <p>Copyright &copy; Balou 2015</p>
                 </div>
                 <!-- /.col-lg-12 -->

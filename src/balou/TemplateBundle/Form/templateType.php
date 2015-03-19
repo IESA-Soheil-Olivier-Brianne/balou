@@ -20,6 +20,7 @@ class TemplateType extends AbstractType
         ;
     }
     
+    
     /**
      * @param OptionsResolverInterface $resolver
      */

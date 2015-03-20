@@ -94,6 +94,11 @@ AJOUT D'UN ARTICLE
 SQL data et structure
 =======================
 
+--
+La database est un disposition à la racine du fichier ".bdd"
+--
+
+
 -- phpMyAdmin SQL Dump
 -- version 4.2.10
 -- http://www.phpmyadmin.net

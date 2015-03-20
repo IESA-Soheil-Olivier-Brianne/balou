@@ -1,15 +1,12 @@
 {% extends '::base.html.twig' %}
+{% block title %}Modifier l'Article{% endblock %}
 
 {% block body -%}
     <h1>Articles creation</h1>
 
     {{ form(form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('admin_articles') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+     
+    <a href="{{ path('admin_articles') }}"><button type="button" class="btn btn-primary">Retour à la liste</button></a>
+   
 {% endblock %}

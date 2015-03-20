@@ -1,36 +1,51 @@
 {% extends '::base.html.twig' %}
+{% block title %}Note{% endblock %}
 
 {% block body -%}
-    <h1>Notes</h1>
+<div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
 
-    <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Note</th>
-                <td>{{ entity.note }}</td>
-            </tr>
-            <tr>
-                <th>Createdat</th>
-                <td>{{ entity.createdAt|date('Y-m-d H:i:s') }}</td>
-            </tr>
-        </tbody>
-    </table>
+                            <h4>Les informations de votre note</h4>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('admin_notes') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('admin_notes_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+                            <a href="{{ path('notes') }}">
+                                <button type="button" class="btn btn-primary">Retour aux notes</button>
+                            </a>
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Note</th>
+                                            <th>Createdat</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                               
+                                        <tr>
+                                            <td><a href="{{ path('notes_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                                            <td>{{ entity.note }}</td>
+                                            <td>{{ entity.createdAt|date('Y-m-d H:i:s') }}</td>
+                                            <td>
+                                                <a href="{{ path('notes_edit', { 'id': entity.id }) }}"><i class="fa fa-pencil"></i></a>
+                                                <a href="{{ path('notes_show', { 'id': entity.id }) }}"><i class="fa fa-trash-o"></i></a>
+                                            </td>
+                                        </tr>
+                                      
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                            {{ form(delete_form) }}
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
 {% endblock %}
+

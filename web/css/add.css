@@ -181,3 +181,15 @@ section h3.section-subheading {
     }
 
 }
+.logo-balou {
+  padding: 4px;
+  width: 60%;
+}
+
+.nav.navbar-top-links.navbar-right {
+  float: right;
+}
+
+.navbar-default.sidebar {
+  margin-top: 55px;
+}
